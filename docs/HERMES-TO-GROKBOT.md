@@ -5,7 +5,7 @@
 - an "access denied" issue
 - the Circle of Greatness workflow was waiting for input
 
-On Oct 27 Chris reported he was "still stuck with the COG bot to do the daily tasks".
+On Oct 27 Chris said the COG bot still wasn't doing the daily tasks.
 
 **Goal:** one active COG bot, so the KPI channel never gets two bumps. Nothing on Hermes is switched off until its Grok Bot replacement has proven itself and Chris says yes.
 

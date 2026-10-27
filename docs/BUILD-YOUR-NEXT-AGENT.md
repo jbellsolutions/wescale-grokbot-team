@@ -1,8 +1,8 @@
 # Build your next agent: the loop, start to finish
 
-Chris's ask: *"Don't just build shit for me. Teach me how to build ONE agent correctly from beginning → end: Idea → architecture → Claude Code → integrations → data → prompts/instructions → automations → testing → deployment."*
+Chris's ask: teach him to build one agent correctly, start to finish, instead of only building for him: idea → architecture → build → integrations → data → prompts and instructions → automations → testing → deployment.
 
-This page is that loop, for Grok Bot. **The COG Sales Manager is the worked example** at each step. When you build the peptide agent, do the same ten steps. Chief runs it with you (`skills/agent-builder-loop`), and you start it by telling Chief: "let's build the peptide agent together".
+This page is that loop, for Grok Bot. **The COG Sales Manager is the worked example** at each step. Your first build is your own: the WeScale Operator (`projects/wescale-operator/SPEC.md`), or whichever dream from your Dream Map you pick at the monthly check-in. Do the same ten steps. Chief runs it with you (`skills/agent-builder-loop`), and you start it by telling Chief: "let's build my first agent together".
 
 On Grok Bot there is no separate build tool to open. Chief writes the files and creates the bot; you answer questions and do the few things only a person can do (sign-ins, secrets, Settings screens).
 
@@ -29,7 +29,7 @@ Then list the 3–5 tasks you actually repeat. Each one needs:
 
 *COG:* your seven jobs (KPI Monitor, Calendar Monitor, GHL Auditor…) all use the same data and report to you, so they're **seven skills of one bot**. Growth assets need different tools and approvals, so that's a separate bot. Jeremy Haynes material is knowledge, not a job, so it's a skill.
 
-Then the **account**. Every bot on one Grok account shares one computer: its files, its browser sessions and its logins. If the new bot's data or logins must stay apart from COG's, it needs its own Grok account (and its own plan). *COG:* your money is on a separate personal account for exactly this reason.
+Then the **account**. Every bot on one Grok account shares one computer: its files, its browser sessions and its logins. If the new bot's data or logins must stay apart from COG's, it needs its own Grok account (and its own plan). *COG:* your life and money are on a separate personal account, and the peptide offer on its own, for exactly this reason.
 
 ### 3. Charter: the agent's job description
 
@@ -102,4 +102,4 @@ Chief keeps `context/team-registry.md` current: the bot, its routines, its conne
 
 ---
 
-**You've done it once when:** the peptide agent exists, its routines are on, it passed its test, and you did steps 1–3 and 5–9 yourself.
+**You've done it once when:** your first agent exists, its routines are on, it passed its test, and you did steps 1–3 and 5–9 yourself. That's milestone M10.

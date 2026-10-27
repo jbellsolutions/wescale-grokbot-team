@@ -1,0 +1,16 @@
+NAME: Weekend plan
+OWNER: Life Concierge
+ACCOUNT: personal
+WHEN: Thursdays at 2:00 PM (Eastern)
+MILESTONE: M5
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/chris-personal/context/routines-on.md. If "Weekend plan" isn't listed there as "on" or "test", append "<time ET> · Weekend plan · SKIPPED_OFF" to /workspace/chris-personal/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/chris-personal/ and this account's connected apps. If /workspace/chris-personal/context/owner.md is missing, append "<time ET> · Weekend plan · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · Weekend plan · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · Weekend plan · EXECUTED · <one-line result>" to /workspace/chris-personal/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the life-planning skill, section Weekend plan. Check where Chris is: the "Where I am" line in /workspace/chris-personal/context/owner.md. If it's missing or more than 7 days old, plan for the last city you know and open the message with "Planning for <city>. Wrong city? Tell me." Never wait for an answer.
+Find and verify three options for that city (one big night, one easy night, one daytime thing), each with day and local time, price level, a reservation link and a backup. Skip anything in /workspace/chris-personal/vault/Life/Never-again.md and anything that clashes with his personal calendar.
+Send them in one phone-short message ending "Reply 1, 2, 3 or 'more like 2'." Log the plan in /workspace/chris-personal/vault/Life/Plans.md. Book, reserve and buy nothing. If any personal routine that was due this week has no line in /workspace/chris-personal/log/runs-<YYYY-MM>.md, add one line at the end: "<routine> didn't run: paused? Check its Details tab."

@@ -54,6 +54,8 @@ for (const f of agents) {
 
 // routines: header, owner exists, preamble, skills named exist, Eastern
 const HEADER = ["NAME", "OWNER", "ACCOUNT", "WHEN", "MILESTONE", "STATUS"];
+// The peptide account may run on its own Grok account or on the business account; its folder is the same either way.
+const WORKSPACES = { business: "/workspace/cog-team/", personal: "/workspace/chris-personal/", peptide: "/workspace/peptide/" };
 const routineFiles = readdirSync(join(ROOT, "routines")).filter((f) => f.endsWith(".prompt"));
 for (const f of routineFiles) {
   const text = read(join("routines", f));
@@ -61,12 +63,12 @@ for (const f of routineFiles) {
   const h = Object.fromEntries([...head.matchAll(/^([A-Z]+): (.*)$/gm)].map((m) => [m[1], m[2]]));
   check(HEADER.every((k) => h[k]), `routines/${f} header`, `routines/${f}: header needs ${HEADER.join(", ")}`);
   check(botNames.has(h.OWNER), `routines/${f} owner ${h.OWNER}`, `routines/${f}: OWNER "${h.OWNER}" has no charter in agents/`);
-  check(["business", "personal"].includes(h.ACCOUNT), `routines/${f} account`, `routines/${f}: ACCOUNT must be business or personal`);
+  check(Object.hasOwn(WORKSPACES, h.ACCOUNT ?? ""), `routines/${f} account`, `routines/${f}: ACCOUNT must be business, personal or peptide`);
   check(/\(Eastern\)$/.test(h.WHEN ?? ""), `routines/${f} WHEN is Eastern`, `routines/${f}: WHEN must end with "(Eastern)"`);
   check(/^STATUS: Created paused/m.test(head), `routines/${f} ships paused`, `routines/${f}: STATUS must say it's created paused`);
   for (const line of ["Switch check:", "Test mode:", "Isolation guard:", "Lean run:", "Run log:"]) check(body.includes(line), `routines/${f} ${line}`, `routines/${f}: missing "${line}"`);
   for (const m of body.matchAll(/\b([a-z]+(?:-[a-z]+)+) skill\b/g)) check(skillNames.has(m[1]), `routines/${f} skill ${m[1]} exists`, `routines/${f} names missing skill ${m[1]}`);
-  const ws = h.ACCOUNT === "personal" ? "/workspace/chris-personal/" : "/workspace/cog-team/";
+  const ws = WORKSPACES[h.ACCOUNT] ?? WORKSPACES.business;
   const foreign = [...body.matchAll(/\/workspace\/([a-z-]+)\//g)].map((m) => `/workspace/${m[1]}/`).filter((p) => p !== ws);
   check(foreign.length === 0, `routines/${f} stays in ${ws}`, `routines/${f}: touches ${[...new Set(foreign)].join(", ")}`);
 }
@@ -85,7 +87,7 @@ for (const m of start.matchAll(/`((?:agents|docs|policies|config|routines|skills
 
 // public repo: no secrets, no private client details
 const SECRET = /(sk-[A-Za-z0-9_-]{20,}|sk-or-v1-[a-f0-9]{20,}|xox[abp]-[0-9A-Za-z-]{10,}|pit-[0-9a-f-]{20,}|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----)/;
-const PRIVATE = /(Medell[ií]n|Bogot[aá]|Pichardo|chrisxpichardo|@gmail\.com|\$10 loaded|U0(?!123456789)[0-9A-Z]{8,})/;
+const PRIVATE = /(Medell[ií]n|Bogot[aá]|Pichardo|chrisxpichardo|@gmail\.com|\$10 loaded|U0(?!123456789)[0-9A-Z]{8,}|\b[Dd]ating\b|[Dd]ate[- ]nights?)/;
 const files = walk(ROOT).filter((p) => !/\.(png|jpe?g|gif|ico|pdf)$/i.test(p));
 const leaks = files.filter((p) => SECRET.test(readFileSync(p, "utf8")));
 check(leaks.length === 0, "no secrets in package files", `possible secret in: ${leaks.map((p) => relative(ROOT, p)).join(", ")}`);

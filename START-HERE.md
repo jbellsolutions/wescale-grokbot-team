@@ -19,18 +19,22 @@ You do the work. Chris answers questions and does the few things only a person c
 
 ## Step 0. Which account is this?
 
-Chris's first message says "business account" or "personal account". If it doesn't, ask: "Is this your business account (COG, Slack, GoHighLevel) or your personal account (your money)?"
+Chris's first message says "business account", "personal account" or "peptide account". If it doesn't, ask: "Is this your business account (COG, Slack, GoHighLevel), your personal account (your life and money) or your peptide account (the build-out offer)?"
 
-| | Business account | Personal account |
-|---|---|---|
-| You become | **Chief** (`agents/01-chief.md`) | **CFO** (`agents/05-cfo.md`) |
-| Workspace | `/workspace/cog-team/` | `/workspace/chris-personal/` |
-| Follow | Steps 1–10, then 11 and 12 when their time comes | [Personal account](#personal-account) at the end |
+| | Business account | Personal account | Peptide account |
+|---|---|---|---|
+| You become | **Chief** (`agents/01-chief.md`) | **Life Concierge** (`agents/07-life-concierge.md`) | **Peptide Operator** (`agents/09-peptide-operator.md`) |
+| Workspace | `/workspace/cog-team/` | `/workspace/chris-personal/` | `/workspace/peptide/` |
+| Your team | COG Sales Manager, Pre-Call Concierge, Growth Operator, Sales Coach | CFO, plus any private bot in `PERSONAL-CONTEXT.md` | Media Buyer, Scale Advisor |
+| Attachment Chris may add | `DREAM-MAP.md` | `PERSONAL-CONTEXT.md` | `GROWTH-CONTEXT.md` |
+| Follow | Steps 1–10, then 11–13 when their time comes | [Personal account](#personal-account) | [Peptide account](#peptide-account) |
+
+The attachments are Chris's private notes from his calls with Justin: what he asked for, in his words. They never go in this repo. If one belongs to another account, don't read past its title; tell Chris which account it goes on.
 
 Then send Chris one message that checks:
 - His plan includes Grok Bot (xAI's plans page lists which ones). If it doesn't, stop here and tell him; never buy or upgrade for him.
 - The Grok Bot desktop app is open for this first session.
-- This Grok account is for his business only. Every bot on one account shares one computer, its files and its logins, so his personal money goes on a separate account later.
+- This Grok account is for one part of his life only. Every bot on one account shares one computer, its files and its logins. So COG lives on the business account, his life and money on a personal account, and the peptide offer on its own account (or in its own folder on the business account until he adds one).
 
 ## Step 1. Make your workspace
 
@@ -65,6 +69,10 @@ Run the `getting-started` skill. It asks Chris the questions in `config/intake-i
 - `context/priority-people.md`.
 
 Then check `context/cog.json`: every field marked `REQUIRED` is filled and nothing still says `REQUIRED` or `EXAMPLE`. Read the roster back to Chris in one message and get his "right". If something is still unknown (an exact field name, a Slack ID), leave it `REQUIRED` and look it up yourself in Step 5 once Slack and Sheets are connected; then confirm it with him.
+
+Then two short extras:
+1. **His Dream Map.** If Chris attached or pasted `DREAM-MAP.md`, run the `dream-map` skill to save it as `context/dream-map.md`. Tell him in one line: "I've got your list: <n> things you've asked for, <m> already have a bot." No attachment: start the map from his intake answers.
+2. **What ChatGPT knows.** Run the `memory-import` skill with the business prompt. It saves `context/about-me.md`, so every bot starts out knowing him.
 
 ## Step 4. Approval rules
 
@@ -101,9 +109,9 @@ Do these one at a time. After each, run one read-only check and tell Chris what 
 
 ## Step 7. Create the team
 
-Tell Chris: "I'm creating three bots now: COG Sales Manager, Pre-Call Concierge and Growth Operator. They share this computer and folder. None of them sends anything until you say so. OK?"
+Tell Chris: "I'm creating four bots now: COG Sales Manager, Pre-Call Concierge, Growth Operator and Sales Coach. They share this computer and folder. None of them sends anything until you say so. OK?"
 
-After his yes, for each of `agents/02-cog-sales-manager.md`, `agents/03-precall-concierge.md`, `agents/04-growth-operator.md`:
+After his yes, for each of `agents/02-cog-sales-manager.md`, `agents/03-precall-concierge.md`, `agents/04-growth-operator.md`, `agents/06-sales-coach.md`:
 1. Create a new bot with the charter's **Bot name**.
 2. Send it the setup message below, with its charter file filled in, as a handoff message. Wait for "ready".
 3. If you can't create a bot yourself, **Owner step:** "Choose New chat (+) → Create new Bot. Rename it [name] by clicking its name. Then paste this as its first message:" followed by the setup message, written out in full so he can copy it.
@@ -115,7 +123,7 @@ You are part of Chris's business team that Chief is building from /workspace/cog
 
 Then:
 - Ask the COG Sales Manager to read 3 past messages from the KPI channel, the EOD source's last 3 entries, yesterday's appointments in GHL and tomorrow's calendar, and quote one real record from each. **That's milestone M1.**
-- Write all four bots to `context/team-registry.md`.
+- Write all five bots to `context/team-registry.md`.
 
 ## Step 8. The old COG bot on Hermes
 
@@ -141,7 +149,7 @@ A routine belongs to the bot that creates it, so each bot creates its own. For e
    - Remove the test line.
 4. **Turn on the preview.** Ask Chris: "Turn on the COG preview for five nights? The 11:30 PM and 12:45 AM checks, the 8 AM report, the no-show sweeps, the Monday review, my 8:30 brief, my Friday wrap and the nightly vault backup. Everything comes to you only." On his yes, write each as `on` in `routines-on.md` and ask each owner to resume its routine. `eod-mode.md` stays `preview`.
 
-Pre-Call and Growth routines stay paused until Step 12.
+Pre-Call, Growth and Sales Coach routines stay paused until Step 12, and the Monthly Dream check-in until Step 13.
 
 ## Step 10. Acceptance tests and report
 
@@ -176,26 +184,55 @@ Start only when Chris has marked five nights in a row right (M3).
 
 That's milestone M4. From then on only the bump posts by itself.
 
-## Step 12. Pre-Call and Growth (when Chris says go)
+## Step 12. Pre-Call, Growth and call QC (when Chris says go)
 
-Start after M3, when Chris says "turn on pre-call" or "turn on growth".
+Start after M3, when Chris says "turn on pre-call", "turn on growth" or "turn on call reviews".
 1. Ask for the Jeremy Haynes knowledge base link (from Oct 16) and where call recordings live, if the intake didn't get them. Write them to `cog.json`.
 2. The Pre-Call Concierge builds the content library index: `vault/Assets/Content-Library.md`, tagged by prospect type and objection, from the Drive folder Chris names. Chris confirms which proof is permitted.
-3. Test, then turn on (as in Step 9): Booked-call briefs and sequences, New bookings sweep, Weekly call review.
+3. **The call standard.** The Sales Coach drafts `context/call-standard.md` from COG's scripts and its default rubric (`call-qc` skill) and sends it to Chris. It scores nothing until he says yes. Then it loads the Jeremy Haynes library with the `expert-library` skill.
+4. Test, then turn on (as in Step 9): Booked-call briefs and sequences, New bookings sweep, Weekly call review (M8), then Daily call QC and Weekly coaching report (M9). Once the Sales Coach is on, the Growth Operator builds from its scorecards instead of scoring calls itself.
+
+## Step 13. The Dream Map and Chris's first build
+
+Start after M4, or sooner if Chris asks "what's next?"
+1. Read `context/dream-map.md` back to him in five lines: what's live, what's built and waiting on him, what's next.
+2. Ask: "Want a check-in on the first Monday of each month, where we pick the next thing and build it together?" On his yes, test and turn on the Monthly Dream check-in.
+3. His first build is his own: the WeScale Operator (`projects/wescale-operator/SPEC.md`), or whichever dream he picks. Run `agent-builder-loop` with him, step by step, with him doing each step he wants to do. That's milestone M10. The long version is `docs/BUILD-YOUR-NEXT-AGENT.md`.
 
 ## Personal account
 
-Use this path when Chris said "personal account".
+Use this path when Chris said "personal account". You become the **Life Concierge**, the lead bot here. The CFO works beside you, with any private bot Chris's notes describe. Nothing on this account ever touches COG or the peptide offer.
 
-1. Do Step 1 with `/workspace/chris-personal/` as the workspace: folders `context/`, `ledger/`, `reports/`, `log/`, and `context/routines-on.md` with the same first line as the business one. No `cog.json`, no team files.
-2. Do Step 2, but your role is `agents/05-cfo.md` and your name is **CFO**. Save only the skills `manifest.json` lists for the personal account.
-3. Run `getting-started` in personal mode: income sources, accounts to track (names only, never numbers), goals, subscriptions he knows of. It writes `context/owner.md`, `context/goals.md` and `context/subscriptions.md`.
-4. **Owner step:** the personal Auto-review rules from `policies/APPROVALS.md`.
-5. **Owner step:** "In Connect apps, add Google Drive with your personal Google account. Make a folder called GrokBot Personal with a folder inside called Finance Exports, and drop last month's bank and card CSV exports there." **Check:** list the files.
-6. Run `personal-cfo-ledger` once. Show Chris the categories and fix them with him.
-7. Create the `ACCOUNT: personal` routine paused, test it, and turn it on after his yes.
-8. Never connect this account to the business Slack, GoHighLevel or COG data.
+1. Do Step 1 with `/workspace/chris-personal/` as the workspace: folders `context/`, `daily/`, `ledger/`, `reports/`, `requests/`, `log/` and `vault/` (with `Life/` inside), and `context/routines-on.md` with the same first line as the business one. No `cog.json`, no team files.
+2. Do Step 2, but your role is `agents/07-life-concierge.md` and your name is **Life Concierge**. Save only the skills `manifest.json` lists for the personal account. Set the time zone to Eastern as in Step 2: routines run on Eastern, and the plans you send use the local time of the city he's in.
+3. Run `getting-started` in personal mode, the life part: where he is now and where he usually spends his time, his usual nights out, favourite places and never-agains, special dates (first names only), how he likes messages. If Chris attached or pasted `PERSONAL-CONTEXT.md`, start from it and confirm it in one message instead of asking again. Save its dream rows with the `dream-map` skill.
+4. Run `memory-import` with the personal prompt.
+5. **Owner step:** the personal Auto-review rules from `policies/APPROVALS.md`.
+6. **Owner step:** "In Connect apps, add Google Calendar and Google Drive with your personal Google account (and Gmail if you want booking confirmations read). In Drive, make a folder called GrokBot Personal with a folder inside called Finance Exports, and drop last month's bank and card CSV exports there." **Check:** list this weekend's events and the export files.
+7. Create the CFO (`agents/05-cfo.md`) as in Step 7, with `/workspace/chris-personal/` in the setup message instead of `/workspace/cog-team/` and `context/about-me.md` instead of `cog.json`. Then ask the CFO to run `getting-started` in personal mode, the money part, and `personal-cfo-ledger` once. It shows Chris the categories and fixes them with him.
+   If `PERSONAL-CONTEXT.md` has a "Private bot" section, follow it: it holds that bot's charter and skill, which stay off this public repo. Save them where it says, create the bot the same way, and add it to the registry. Never copy them into the repo.
+8. Create the `ACCOUNT: personal` routines paused, each by its owner, as in Step 9. Test each one, then turn it on after Chris's yes. Suggest starting with the Weekend plan this Thursday.
+9. Never connect this account to the business Slack, GoHighLevel, COG data or the peptide offer's apps.
 
-## Later: building the next agent
+Milestone M5 is done when Chris uses one weekend plan and the CFO answers "how much did I spend this month?" from his own data.
 
-When Chris says "let's build the peptide agent together", run `skills/agent-builder-loop` with him and the intake in `agents/90-reserved-peptide-operator.md`. The long version is `docs/BUILD-YOUR-NEXT-AGENT.md`. That's milestone M6.
+## Peptide account
+
+The peptide offer gets its own team of three, separate from COG. It can run in one of two places (`agents/09-peptide-operator.md` → Where it runs):
+
+- **Its own Grok account (recommended).** Chris says "peptide account" in the first message of a new account. You become the **Peptide Operator**.
+- **The business account, in its own folder.** Chris tells Chief "set up the peptide team here". Chief tells him once: "The offer's ad, CRM and payment logins will sit on the same computer as COG's. Move it to its own account when that matters. OK?" On his yes, Chief creates a bot named **Peptide Operator** and sends it: "You are Chris's Peptide Operator. Follow the Peptide account section of /workspace/cog-team/repo/START-HERE.md on this business account, working only in /workspace/peptide/. Reply 'ready' when your team is set up." Chief adds it to its registry as a bot on this account that keeps its own folder.
+
+Either way, every path is `/workspace/peptide/`, so moving to its own account later is a copy of that folder.
+
+1. Do Step 1 with `/workspace/peptide/` as the workspace: folders `context/`, `daily/`, `requests/`, `log/`, `libraries/` and `vault/` (with `Offer/`, `Clients/`, `Ads/` and `Advisor/` inside), the repo cloned to `/workspace/peptide/repo`, and `context/routines-on.md` with the same first line as the business one.
+2. Do Step 2 with `agents/09-peptide-operator.md` as your role and **Peptide Operator** as your name. On the business account, skip the rename, pin and time-zone steps (Chief did them) and save only the skills `manifest.json` lists for the peptide account that aren't saved yet.
+3. Run `getting-started` in peptide mode. If Chris attached or pasted `GROWTH-CONTEXT.md`, start `context/offer.md` from it. Confirm each item it marks "confirm" with him, one message at a time, and get his targets: without them nothing can be judged. Save its dream rows with the `dream-map` skill.
+4. Run `memory-import` with the peptide prompt.
+5. **Owner step:** the peptide Auto-review rules from `policies/APPROVALS.md`. On the business account, add them next to the business ones.
+6. **Owner step:** connect the offer's systems in Connect apps, read-only where the app allows: its CRM, payments, each ad platform, Google Drive and Sheets, and GitHub (for the Jeremy Haynes library). On the business account, remind him once that Connect apps are account-wide. **Check:** quote one real record from each.
+7. Create the Media Buyer (`agents/10-media-buyer.md`) and the Scale Advisor (`agents/11-scale-advisor.md`) as in Step 7, with `/workspace/peptide/` in the setup message and `context/offer.md` instead of `cog.json`. The Media Buyer writes `context/ad-accounts.md` and asks Chris for his scale and cut rules for `context/ad-rules.md`. The Scale Advisor loads the Jeremy Haynes library (`expert-library`) from the GitHub link Chris gives and writes it to `context/libraries.md`.
+8. Create the `ACCOUNT: peptide` routines paused, each by its owner, as in Step 9. Test each, then turn them on after Chris's yes, starting with the Daily ad pulse and the Offer morning pulse.
+9. Never read or connect COG's data, and never take this offer's data to the business folder.
+
+Milestone M6 is done when the morning pulse arrives with every number sourced (or UNKNOWN) and Chris acts on one bottleneck.

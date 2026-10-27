@@ -1,6 +1,6 @@
 ---
 name: new-agent-onboarding
-description: Create a new bot on the team safely - intake interview, charter with a Profile block and Memory seed, least-privilege apps, routines created paused, test, go-live checklist and registry. Use when Chief adds any bot, including the reserved Peptide Operator.
+description: Create a new bot on the team safely - intake interview, charter with a Profile block and Memory seed, least-privilege apps, routines created paused, test, go-live checklist and registry. Use when Chief adds any bot, including Chris's first own build from the Dream Map.
 ---
 
 # New agent onboarding
@@ -13,16 +13,16 @@ description: Create a new bot on the team safely - intake interview, charter wit
 4. Who it reports to, and how: Chief's brief, a message, a channel.
 5. What needs Chris's OK, and what must never happen.
 
-For the peptide business, use the questions in `/workspace/cog-team/repo/agents/90-reserved-peptide-operator.md`.
+When the dream already has a spec in `/workspace/cog-team/repo/projects/<name>/SPEC.md`, start from it and ask only what its "INPUT NEEDED" section leaves open.
 
 ## Charter template
 
-Save it as a **new** file `/workspace/cog-team/repo/agents/NN-name.md` (next free number below 90). Never edit a charter that ships with the repo, and never push a charter that holds Chris's facts to GitHub: the repo is public. Use `/workspace/cog-team/repo/agents/02-cog-sales-manager.md` as the worked example.
+Save it as a **new** file `/workspace/cog-team/repo/agents/NN-name.md` (the next free number). Never edit a charter that ships with the repo, and never push a charter that holds Chris's facts to GitHub: the repo is public. Use `/workspace/cog-team/repo/agents/02-cog-sales-manager.md` as the worked example.
 
 ```
 # Agent charter: <Name>
 
-**Bot name:** <Name> · **Account:** business | personal · **Milestone:** <M#> · **Reports to:** Chief | Chris
+**Bot name:** <Name> · **Account:** business | personal | peptide · **Milestone:** <M#> · **Reports to:** Chief | Chris
 
 ## Role
 ## Mission

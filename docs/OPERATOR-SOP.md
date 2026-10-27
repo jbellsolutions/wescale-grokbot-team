@@ -1,6 +1,6 @@
 # Operator SOP: running the GrokBot team
 
-This is the SOP Chris asked for on Oct 20 ("build me an SOP or something really tangible"). Each section is a procedure: when, steps, done.
+This is the SOP Chris asked for on Oct 20: something tangible to follow. Each section is a procedure: when, steps, done.
 
 The bots live in the Grok Bot app. Chief is pinned at the top of the sidebar, so you always start there. Each bot's **Details** tab shows its routines, with **Pause**, **Resume**, **Test** and **Edit**.
 
@@ -77,11 +77,23 @@ Chief updates `/workspace/cog-team/context/cog.json` (the one real copy), logs i
 2. Chief checks the run log, the routines list and the connections, and tells you in one message what broke and what it needs from you. Usually that's a re-sign-in under **Connect apps**, or a routine to **Resume**.
 3. **Stop everything:** "pause all routines". Chief asks each bot to pause its own routines. **Restart:** "resume routines". Chief confirms which are on, and each bot may ask you once to confirm.
 
-## SOP 9. Personal money
+## SOP 9. Your personal account: life and money
 
-1. Monthly: download CSV exports from your bank and card sites into Drive → `GrokBot Personal/Finance Exports`, on your personal Google account.
-2. Switch to your **personal Grok account** (a separate sign-in) and ask the CFO anything.
-3. Sunday evening: read the money check-in.
+1. **Where you are.** When you switch cities, tell any bot there "I'm in <city>". The Life Concierge plans for that city in its local time.
+2. **Thursday 2 PM:** three weekend options. Reply 1, 2, 3 or "more like 2". You book; it never pays.
+3. **Money:** monthly, download CSV exports from your bank and card sites into Drive → `GrokBot Personal/Finance Exports`, on your personal Google account. Ask the CFO anything. Sunday evening, read the money check-in.
+
+## SOP 9b. Your peptide team
+
+1. **8:30 AM:** the offer pulse, one screen. Act on its one action.
+2. **When the Media Buyer sends SCALE or CUT lines:** reply "do it" for the exact list, "do 1", or nothing. It changes only what you approved.
+3. **Ask the Scale Advisor** "how would Jeremy fix <thing>?" or "write this the Jeremy way". Sunday 6 PM, read the scale memo and pick the experiment.
+4. **New expert:** "build me a library on <name>". It shows you before anything is published.
+
+## SOP 9c. Your Dream Map
+
+1. Say "add this to the list" to any lead bot (Chief, the Life Concierge, the Peptide Operator) whenever you have an idea.
+2. First Monday of the month: Chief's check-in. Say yes to the build it suggests, or pick another. You do the steps you want to learn; it does the rest.
 
 ## SOP 10. Friday: the usage check
 
@@ -95,7 +107,7 @@ Chief updates `/workspace/cog-team/context/cog.json` (the one real copy), logs i
 Chris offered to record Looms to train the agent. Record this one for yourself and future hires. It locks the routine in.
 
 1. **(0:00)** "This is our AI sales-management team in Grok Bot. Chief is the one I talk to."
-2. **(0:30)** Open the Grok Bot app. Show Chief pinned, then the COG Sales Manager, the Growth Operator and the Pre-Call Concierge. Mention the CFO on the separate personal account.
+2. **(0:30)** Open the Grok Bot app. Show Chief pinned, then the COG Sales Manager, the Pre-Call Concierge, the Growth Operator and the Sales Coach. Mention that your personal and peptide teams live on their own accounts.
 3. **(1:00)** Open this morning's brief in Chief's chat. Walk through one 🔴 item and approve it.
 4. **(2:00)** Open the vault in Obsidian → today's daily note → click a rep's name → show their ledger.
 5. **(3:00)** Ask Chief live: "How did we do yesterday vs last week?"

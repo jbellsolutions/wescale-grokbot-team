@@ -10,6 +10,7 @@ description: Chris's one-screen morning brief - what needs him today across COG,
    - team health, from the `team-health-check` skill: routines that were due and didn't run, sources that were `UNKNOWN` twice in a row
    - the Pre-Call Concierge's prep status for today's booked calls: `/workspace/cog-team/daily/<today>/precall.md`
    - drafts waiting for approval from the Growth Operator: `/workspace/cog-team/daily/<today>/growth.md`
+   - the Sales Coach's call QC (calls scored, the best call, up to three calls that need Chris): `/workspace/cog-team/daily/<today>/coaching.md`. It runs on weekdays only, so on Saturdays and Sundays a missing note is expected, not "not in"
    - approvals still waiting on Chris from every bot (`/workspace/cog-team/approved/`)
    - today's calendar, on every connected calendar
    - inbox items that need a reply from him, and his Slack DMs and mentions since the last brief

@@ -62,7 +62,7 @@
 25. "How do you like messages: short, numbered, numbers first? Anything you hate? When are you off, and which hours are protected?" → `owner.md`.
 26. "Who are your priority people: the ones whose messages need you fast?" → `priority-people.md`. Look up their Slack and email handles yourself.
 
-## I. Personal (CFO; can wait)
+## I. Personal (personal account; can wait)
 
 27. Don't ask this here. It belongs on the personal Grok account: the CFO runs `getting-started` in personal mode and asks which bank and card accounts it should see. Easiest: Chris downloads CSV exports into Drive → `GrokBot Personal/Finance Exports` once a month. Never give it a login.
 

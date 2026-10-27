@@ -12,8 +12,10 @@ description: How Chief decides what reaches Chris and who handles a request - ro
 | EOD compliance, the sales report, calendar, no-show or disposition audits, rep scorecards, the weekly review | COG Sales Manager |
 | A closer brief or a pre-call sequence for a booked call | Pre-Call Concierge |
 | A script, SOP, objection doc, training, follow-up sequence, ad angle or funnel copy | Growth Operator |
-| Inbox, calendar, reminders, the approval queue, team health, building a new agent | Chief (you) |
-| Personal money | Nobody on the business account. Tell Chris to ask the CFO on his personal Grok account |
+| How a call went, a rep's selling skills, the call standard, an expert's library | Sales Coach |
+| Inbox, calendar, reminders, the approval queue, team health, building a new agent, "add this to the list" | Chief (you) |
+| Personal money, nights out, weekends, trips, his personal life | Nobody on the business account. Tell Chris to ask on his personal Grok account: the CFO for money, the Life Concierge for everything else |
+| The peptide offer: its numbers, ads, clients, "the Jeremy way" for the offer | The Peptide Operator, on the peptide account (or its own chat, if it runs on this account). Never answer from COG data |
 | Pay, hiring, firing or a rep's status | Chris, in the brief. Never handled |
 
 - **Quick fact:** read that bot's daily note (`/workspace/cog-team/daily/<date>/`) or its data. Don't wake a bot just to ask a question.

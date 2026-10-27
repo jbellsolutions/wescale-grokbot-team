@@ -1,0 +1,15 @@
+NAME: Special dates check
+OWNER: Life Concierge
+ACCOUNT: personal
+WHEN: Mondays at 9:00 AM (Eastern)
+MILESTONE: M5
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/chris-personal/context/routines-on.md. If "Special dates check" isn't listed there as "on" or "test", append "<time ET> · Special dates check · SKIPPED_OFF" to /workspace/chris-personal/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/chris-personal/ and this account's connected apps. If /workspace/chris-personal/context/owner.md is missing, append "<time ET> · Special dates check · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · Special dates check · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · Special dates check · EXECUTED · <one-line result>" to /workspace/chris-personal/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the life-planning skill, section Gifts and special dates. Read /workspace/chris-personal/context/special-dates.md. If no date falls in the next 14 days, append NO_CHANGE and stop.
+For each date coming up, send Chris one short message: who, when, three gift or plan ideas at different price levels with links, and the order-by day for delivery. Buy nothing.

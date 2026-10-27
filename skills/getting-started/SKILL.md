@@ -1,11 +1,13 @@
 ---
 name: getting-started
-description: Use once, right after Chief is set up, to run the intake - ask Chris the setup questions one at a time and write /workspace/cog-team/context/cog.json, owner.md and priority-people.md. On the personal account, run the personal mode. Also use when Chris says "redo setup", "update my details" or "add a rep".
+description: Use once, right after a lead bot is set up, to run the intake - ask Chris the setup questions one at a time. Business mode (Chief) writes /workspace/cog-team/context/cog.json, owner.md and priority-people.md; personal mode (Life Concierge, then the CFO) and peptide mode (Peptide Operator) write their own account's context. Also use when Chris says "redo setup", "update my details" or "add a rep".
 ---
 
 # Getting started
 
-Pick the mode from the workspace you are in: `/workspace/cog-team/` is the **business mode** (you are Chief); `/workspace/chris-personal/` is the **personal mode** (you are the CFO). Never mix them.
+Pick the mode from the workspace you are in: `/workspace/cog-team/` is the **business mode** (you are Chief); `/workspace/chris-personal/` is the **personal mode** (the Life Concierge asks the life part, the CFO the money part); `/workspace/peptide/` is the **peptide mode** (you are the Peptide Operator). Never mix them.
+
+If Chris attached or pasted his notes for this account (`DREAM-MAP.md`, `PERSONAL-CONTEXT.md` or `GROWTH-CONTEXT.md`), start from them: skip each question they answer and confirm those answers in one message instead.
 
 Ask one question at a time. Wait for each answer. Keep each question to one or two lines. Chris reads on his phone.
 
@@ -44,7 +46,21 @@ Never ask for passwords, tokens, keys, revenue history, bank details or account 
 
 **Later changes** (a new rep, a rep who leaves, a new target, a new cutoff, a new form field): only Chief edits `cog.json`, and only after Chris confirms the change in his own words. Log each in `/workspace/cog-team/vault/Decisions.md`. History stays in the vault; a rep who leaves is marked `active: false`, never deleted.
 
-## Personal mode (CFO, on the personal account)
+## Personal mode (on the personal account)
+
+### Life part (Life Concierge)
+
+Ask these one at a time:
+
+1. "Where are you right now, and where do you usually spend your time?" Write the "Where I am: <city>, since <date>" line and the usual places to `/workspace/chris-personal/context/owner.md`. Plans use the local time of that city; routines still run on Eastern.
+2. "Which nights do you usually go out, and what's a great night for you?" → `owner.md`.
+3. "Name a few places you love, and any you never want suggested again." → `/workspace/chris-personal/vault/Life/Favorites.md` and `/workspace/chris-personal/vault/Life/Never-again.md`.
+4. "Any birthdays or anniversaries I should never let you miss? First names and dates." → `/workspace/chris-personal/context/special-dates.md`.
+5. "How do you like my messages: short, picks first?" → `owner.md`.
+
+Then hand the money part to the CFO once it exists (START-HERE, Personal account, step 7). When Chris moves cities, he tells any bot here "I'm in <city>", and the Life Concierge updates the "Where I am" line.
+
+### Money part (CFO)
 
 Ask these one at a time:
 
@@ -56,9 +72,24 @@ Ask these one at a time:
 6. "How do you like the Sunday check-in: short and numbers first?"
 
 **Where the answers go** (all in `/workspace/chris-personal/context/`):
-- 1, 2 and 6: `owner.md` (income sources, the account list as names and kinds, how he likes messages)
+- 1, 2, 5 and 6: `money.md` (income sources, the account list as names and kinds, the export folder and the accounts expected each month, how he likes the check-in)
 - 3: `goals.md`
 - 4: `subscriptions.md`
-- 5: a line in `owner.md` naming the folder and the accounts expected each month
 
 The CFO builds `categories.md` and `debts.md` itself from the exports; balances come from the exports, never from what Chris types. Read the answers back in one short message and ask "anything to fix?". Then go on with the next step of the "Personal account" section of START-HERE.md.
+
+## Peptide mode (Peptide Operator)
+
+**Read first:** `GROWTH-CONTEXT.md` if Chris attached it. Copy it to `/workspace/peptide/context/offer.md` and ask only what it leaves open.
+
+Ask these one at a time, skipping what's already answered:
+
+1. "In one line: what does a client get, and what does it cost?" → `offer.md` → The offer.
+2. "What are the fulfilment steps after someone pays, and how long does each take?" → `offer.md` → Fulfilment.
+3. "Who's on the sales team, and where do their EODs land?" → `offer.md` → Team.
+4. "What are your targets: booked calls a day, show rate, close rate, monthly cash, cash per ad dollar?" → `offer.md` → Targets. Nothing can be judged without these.
+5. "Where does each number live: CRM, payments, ad accounts, client tracker?" → `offer.md` → Where the numbers live.
+6. "Which claims must we never make?" Start from: no health, medical or efficacy claims, no income guarantees, no before/after. → `offer.md` → Claims we never make.
+7. "How do you like my morning pulse: one screen, numbers first?" → `/workspace/peptide/context/owner.md`, with who Chris is and his role in the offer.
+
+Anything marked "confirm" in the attachment stays marked until Chris confirms it. Read `offer.md` back in five lines and ask "anything to fix?". Then go on with the next step of the "Peptide account" section of START-HERE.md.

@@ -1,0 +1,16 @@
+NAME: Offer morning pulse
+OWNER: Peptide Operator
+ACCOUNT: peptide
+WHEN: Every day at 8:30 AM (Eastern)
+MILESTONE: M6
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/peptide/context/routines-on.md. If "Offer morning pulse" isn't listed there as "on" or "test", append "<time ET> · Offer morning pulse · SKIPPED_OFF" to /workspace/peptide/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/peptide/ and this account's connected apps. If /workspace/peptide/context/owner.md is missing, append "<time ET> · Offer morning pulse · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · Offer morning pulse · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · Offer morning pulse · EXECUTED · <one-line result>" to /workspace/peptide/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the offer-pulse skill. If /workspace/peptide/context/offer.md is missing, append "<time ET> · Offer morning pulse · NO_CLIENT_SOURCE" to the run log and stop.
+Read yesterday's numbers from the sources listed in /workspace/peptide/context/offer.md, the Media Buyer's /workspace/peptide/daily/<today>/ads.md and the client tracker in /workspace/peptide/vault/Clients/.
+Send Chris one screen, under 120 words: the funnel from leads to cash against target and the 7-day average, the bottleneck with its evidence and who it's handed to, any overdue client step, and one action. Write the handoff to /workspace/peptide/requests/<bot>/ and the pulse to /workspace/peptide/daily/<today>/pulse.md. A source you can't read is UNKNOWN, never 0. If any peptide routine that was due since yesterday has no line in /workspace/peptide/log/runs-<YYYY-MM>.md, add one line: "<routine> didn't run: paused? Check its Details tab."

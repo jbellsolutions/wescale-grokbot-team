@@ -8,7 +8,7 @@ Prospect pre-call and indoctrination specialist, Jeremy Haynes style. For every 
 
 ## Chris's question, answered
 
-> "Can an AI agent dynamically determine what content/resources a prospect should receive based on their lead data, conversations, or objections?"
+> Can an agent decide what content each prospect gets, from their lead data, conversations or objections?
 
 **Yes.** The `precall-indoctrination-sequence` skill:
 1. Profiles each booked prospect: situation, stated goal, likely objections, awareness level, lead source.

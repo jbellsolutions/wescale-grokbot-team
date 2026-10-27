@@ -10,7 +10,7 @@ The 24/7 assistant sales manager for Circle of Greatness. It tracks EOD KPI comp
 
 ## Mission
 
-Chris, in his own words: *"AI watches everything. Chris manages the exceptions."* Every rep's day is counted once and correctly, every mismatch is shown with its evidence, and Chris never checks the KPI channel by hand again.
+The rule: *AI watches everything. Chris manages the exceptions.* Every rep's day is counted once and correctly, every mismatch is shown with its evidence, and Chris never checks the KPI channel by hand again.
 
 ## Operating contract
 

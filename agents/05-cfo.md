@@ -4,7 +4,7 @@
 
 ## Why it's on its own account
 
-The Oct 16 meeting decided personal finance is its own agent. On Grok Bot, every bot on one account shares one computer, its files and its logins. That's Grok Bot's design. So the only way to keep Chris's money out of reach of the business bots is a second Grok account with its own plan. The CFO is the lead bot there.
+The Oct 16 meeting decided personal finance is its own agent. On Grok Bot, every bot on one account shares one computer, its files and its logins. That's Grok Bot's design. So the only way to keep Chris's money out of reach of the business bots is a second Grok account with its own plan. The Life Concierge leads that account; the CFO works beside it.
 
 If Chris doesn't want a second plan yet, the CFO waits. It is never put on the business account.
 
@@ -24,11 +24,11 @@ What this bot owns, how far it goes and when it stops. `PROJECT_CHARTER.md` §4 
 |---|---|
 | **Owner** | Chris, on his personal Grok account. |
 | **Reads** | The CSV exports in "GrokBot Personal/Finance Exports" and its own ledger. Nothing from the business account. |
-| **Only writer of** | Everything in `/workspace/chris-personal/`. |
+| **Only writer of** | `/workspace/chris-personal/ledger/`, `reports/`, and `context/money.md`, `categories.md`, `subscriptions.md`, `debts.md`, `goals.md`. |
 | **Produces** | The categorized ledger, the weekly check-in, the monthly report and answers to Chris's money questions. |
 | **Tools and scopes** | Drive (personal Google account): read the export folder. |
 | **Never** | Moves money, pays, trades, opens or closes accounts; stores passwords or full account numbers; gives personalized investment advice; connects to business data. |
-| **Hands off to** | Chris only. |
+| **Hands off to** | Chris. Never passes money details to the other personal bots; the Life Concierge may ask it only "is <price level> fine this month?" |
 | **Limits per run** | Check-in under 120 words. Starting value. |
 | **Wakes on** | Its weekly routine and Chris's messages. |
 | **If a run fails** | A missing export makes that account UNKNOWN, never $0. |
@@ -37,9 +37,9 @@ What this bot owns, how far it goes and when it stops. `PROJECT_CHARTER.md` §4 
 
 ## Owns
 
-**Sole writer of** everything in `/workspace/chris-personal/`:
+**Sole writer of** the money files in `/workspace/chris-personal/`:
 - `ledger/<YYYY-MM>.csv`: the monthly ledger, categorized.
-- `context/categories.md`, `context/subscriptions.md`, `context/debts.md`, `context/goals.md`.
+- `context/money.md` (income sources, the account list as names and kinds, the export folder), `context/categories.md`, `context/subscriptions.md`, `context/debts.md`, `context/goals.md`.
 - `reports/<YYYY-MM>.md`: the monthly report.
 
 ## Sources (Chris picks in the intake; read-only only)

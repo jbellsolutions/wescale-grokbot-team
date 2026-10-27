@@ -15,6 +15,7 @@ Daily/                   one note per day: EOD compliance, sales report, appoint
 Reps/                    one note per rep: compliance events, scores, links to days
 Prospects/               one-page pre-call briefs, one per booked call
 Assets/                  Backlog.md and Content-Library.md
+Coaching/                call scorecards, rep coaching notes, game film, weekly patterns
 Weekly/                  the Monday review and the Friday wrap
 Templates/               Daily.md and Rep.md, which the bots copy for new notes
 ```
@@ -23,6 +24,7 @@ Which bot writes what is in `PROJECT_CHARTER.md` §7:
 - COG Sales Manager: `Reps/` and the EOD and sales sections of `Daily/`
 - Pre-Call Concierge: `Prospects/`
 - Growth Operator: `Assets/Backlog.md`
+- Sales Coach: `Coaching/`
 - Pre-Call Concierge also tags `Assets/Content-Library.md`
 - Chief: `Decisions.md`, the brief in `Daily/`, `Weekly/`
 

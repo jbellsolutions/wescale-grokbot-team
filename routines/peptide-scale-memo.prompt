@@ -1,0 +1,15 @@
+NAME: Weekly scale memo
+OWNER: Scale Advisor
+ACCOUNT: peptide
+WHEN: Sundays at 6:00 PM (Eastern)
+MILESTONE: M6
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/peptide/context/routines-on.md. If "Weekly scale memo" isn't listed there as "on" or "test", append "<time ET> · Weekly scale memo · SKIPPED_OFF" to /workspace/peptide/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/peptide/ and this account's connected apps. If /workspace/peptide/context/owner.md is missing, append "<time ET> · Weekly scale memo · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · Weekly scale memo · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · Weekly scale memo · EXECUTED · <one-line result>" to /workspace/peptide/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the scale-advisor skill, section Sunday scale memo. From this week's pulses in /workspace/peptide/daily/ and the libraries in /workspace/peptide/libraries/, send Chris the three biggest levers, what the frameworks say about each (cited), and one experiment with its success metric, under 200 words.
+Save the memo to /workspace/peptide/vault/Advisor/Memos/<week>.md. Log the experiment in /workspace/peptide/vault/Advisor/Experiments.md, and fill in last week's result if the numbers are in.

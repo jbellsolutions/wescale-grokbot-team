@@ -5,7 +5,10 @@ description: Mine COG sales-call transcripts and the COG Sales Manager's finding
 
 # Call review → asset backlog
 
-1. **Gather** the last 7 days of call transcripts from `calls.transcript_source` in `/workspace/cog-team/context/cog.json`. If it isn't configured, reply `NO_CLIENT_SOURCE` and stop. If the source can't be read, put `UNKNOWN: <source>` on the run-log line and stop. Also read open requests in `/workspace/cog-team/requests/growth-operator/`.
+1. **Gather** the last 7 days of calls.
+   - **Sales Coach scorecards first.** If the Sales Coach is on, its scorecards in `/workspace/cog-team/vault/Coaching/Calls/` and its Friday patterns in `/workspace/cog-team/vault/Coaching/Patterns/` already hold the objections, turning points and best lines, with timestamps. Use them, and read a transcript only to quote it or for a call it didn't score. Don't score calls again.
+   - **Otherwise, transcripts** from `calls.transcript_source` in `/workspace/cog-team/context/cog.json`. If it isn't configured, reply `NO_CLIENT_SOURCE` and stop. If the source can't be read, put `UNKNOWN: <source>` on the run-log line and stop.
+   - Also read open requests in `/workspace/cog-team/requests/growth-operator/`, including the Sales Coach's.
 2. **Read the COG weekly review** (`/workspace/cog-team/vault/Weekly/`) for its recurring problems: show rate, no-shows, disposition errors.
 3. **Extract from each call**, with timestamps:
    - objections (price, timing, spouse, trust, "need to think")

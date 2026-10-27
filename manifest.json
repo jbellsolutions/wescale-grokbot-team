@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Chris's GrokBot team (WeScale / Circle of Greatness)",
-  "description": "A Grok Bot team for a sales manager: one main bot (Chief) plus a COG Sales Manager for nightly EOD compliance and bumps, the morning sales report, no-show, calendar and GoHighLevel audits and rep scorecards; a Pre-Call Concierge for closer briefs and Jeremy Haynes-style pre-call sequences; a Growth Operator that drafts sales and marketing assets from call data; and a read-only CFO on a separate personal account.",
+  "description": "A Grok Bot team for a sales manager, across up to three Grok accounts. Business: one main bot (Chief) plus a COG Sales Manager for nightly EOD compliance and bumps, the morning sales report, no-show, calendar and GoHighLevel audits and rep scorecards; a Pre-Call Concierge for closer briefs and Jeremy Haynes-style pre-call sequences; a Growth Operator that drafts sales and marketing assets from call data; and a Sales Coach that scores every recorded call. Personal: a Life Concierge for nights out, weekends and special dates, and a read-only CFO. Peptide: a Peptide Operator, Media Buyer and Scale Advisor for the second business. Plus a Dream Map of everything Chris has asked for, and specs for what comes next.",
   "platform": "xAI Grok Bot (x.ai/bot)",
   "entry_point": "START-HERE.md",
   "repo_url": "https://github.com/jbellsolutions/wescale-grokbot-team",
@@ -30,13 +30,11 @@
           "name": "Growth Operator",
           "charter": "agents/04-growth-operator.md",
           "milestone": "M2"
-        }
-      ],
-      "reserved": [
+        },
         {
-          "name": "Peptide Operator",
-          "charter": "agents/90-reserved-peptide-operator.md",
-          "milestone": "M6"
+          "name": "Sales Coach",
+          "charter": "agents/06-sales-coach.md",
+          "milestone": "M9"
         }
       ],
       "routine_switch_file": "/workspace/cog-team/context/routines-on.md",
@@ -44,22 +42,67 @@
       "standing_approvals_file": "/workspace/cog-team/context/standing-approvals.md",
       "config_file": "/workspace/cog-team/context/cog.json",
       "run_log": "/workspace/cog-team/log/runs-<YYYY-MM>.md",
-      "ghl_command": "/workspace/cog-team/ghl-super-hub/ghl"
+      "ghl_command": "/workspace/cog-team/ghl-super-hub/ghl",
+      "dream_map": "/workspace/cog-team/context/dream-map.md"
     },
     "personal": {
-      "lead_bot": "CFO",
+      "lead_bot": "Life Concierge",
       "workspace": "/workspace/chris-personal",
       "bots": [
+        {
+          "name": "Life Concierge",
+          "charter": "agents/07-life-concierge.md",
+          "milestone": "M5"
+        },
         {
           "name": "CFO",
           "charter": "agents/05-cfo.md",
           "milestone": "M5"
         }
       ],
-      "routine_switch_file": "/workspace/chris-personal/context/routines-on.md"
+      "routine_switch_file": "/workspace/chris-personal/context/routines-on.md",
+      "run_log": "/workspace/chris-personal/log/runs-<YYYY-MM>.md",
+      "dream_map": "/workspace/chris-personal/context/dream-map.md",
+      "private_bots": "Any private bot is described only in Chris's PERSONAL-CONTEXT.md attachment, never in this repo."
+    },
+    "peptide": {
+      "lead_bot": "Peptide Operator",
+      "workspace": "/workspace/peptide",
+      "runs_on": "Its own Grok account (recommended: separate logins), or the business account in this folder until Chris adds one. Paths are the same either way.",
+      "bots": [
+        {
+          "name": "Peptide Operator",
+          "charter": "agents/09-peptide-operator.md",
+          "milestone": "M6"
+        },
+        {
+          "name": "Media Buyer",
+          "charter": "agents/10-media-buyer.md",
+          "milestone": "M6"
+        },
+        {
+          "name": "Scale Advisor",
+          "charter": "agents/11-scale-advisor.md",
+          "milestone": "M6"
+        }
+      ],
+      "routine_switch_file": "/workspace/peptide/context/routines-on.md",
+      "config_file": "/workspace/peptide/context/offer.md",
+      "run_log": "/workspace/peptide/log/runs-<YYYY-MM>.md",
+      "dream_map": "/workspace/peptide/context/dream-map.md"
     }
   },
   "skills": [
+    {
+      "name": "ad-account-pulse",
+      "path": "skills/ad-account-pulse",
+      "accounts": [
+        "peptide"
+      ],
+      "used_by": [
+        "Media Buyer"
+      ]
+    },
     {
       "name": "agent-builder-loop",
       "path": "skills/agent-builder-loop",
@@ -68,6 +111,16 @@
       ],
       "used_by": [
         "Chief"
+      ]
+    },
+    {
+      "name": "call-qc",
+      "path": "skills/call-qc",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Sales Coach"
       ]
     },
     {
@@ -171,6 +224,20 @@
       ]
     },
     {
+      "name": "dream-map",
+      "path": "skills/dream-map",
+      "accounts": [
+        "business",
+        "personal",
+        "peptide"
+      ],
+      "used_by": [
+        "Chief",
+        "Life Concierge",
+        "Peptide Operator"
+      ]
+    },
+    {
       "name": "exception-routing",
       "path": "skills/exception-routing",
       "accounts": [
@@ -181,15 +248,30 @@
       ]
     },
     {
+      "name": "expert-library",
+      "path": "skills/expert-library",
+      "accounts": [
+        "business",
+        "peptide"
+      ],
+      "used_by": [
+        "Sales Coach",
+        "Scale Advisor"
+      ]
+    },
+    {
       "name": "getting-started",
       "path": "skills/getting-started",
       "accounts": [
         "business",
-        "personal"
+        "personal",
+        "peptide"
       ],
       "used_by": [
         "Chief",
-        "CFO"
+        "Life Concierge",
+        "CFO",
+        "Peptide Operator"
       ]
     },
     {
@@ -206,11 +288,38 @@
       "name": "jeremy-haynes-precall-playbook",
       "path": "skills/jeremy-haynes-precall-playbook",
       "accounts": [
-        "business"
+        "business",
+        "peptide"
       ],
       "used_by": [
         "Pre-Call Concierge",
-        "Growth Operator"
+        "Growth Operator",
+        "Sales Coach",
+        "Scale Advisor"
+      ]
+    },
+    {
+      "name": "life-planning",
+      "path": "skills/life-planning",
+      "accounts": [
+        "personal"
+      ],
+      "used_by": [
+        "Life Concierge"
+      ]
+    },
+    {
+      "name": "memory-import",
+      "path": "skills/memory-import",
+      "accounts": [
+        "business",
+        "personal",
+        "peptide"
+      ],
+      "used_by": [
+        "Chief",
+        "Life Concierge",
+        "Peptide Operator"
       ]
     },
     {
@@ -231,6 +340,16 @@
       ],
       "used_by": [
         "Chief"
+      ]
+    },
+    {
+      "name": "offer-pulse",
+      "path": "skills/offer-pulse",
+      "accounts": [
+        "peptide"
+      ],
+      "used_by": [
+        "Peptide Operator"
       ]
     },
     {
@@ -264,6 +383,16 @@
       ]
     },
     {
+      "name": "scale-advisor",
+      "path": "skills/scale-advisor",
+      "accounts": [
+        "peptide"
+      ],
+      "used_by": [
+        "Scale Advisor"
+      ]
+    },
+    {
       "name": "slack-api",
       "path": "skills/slack-api",
       "accounts": [
@@ -294,6 +423,14 @@
       "milestone": "M5"
     },
     {
+      "file": "routines/chief-dream-checkin.prompt",
+      "name": "Monthly Dream check-in",
+      "owner": "Chief",
+      "account": "business",
+      "when": "Mondays at 11:00 AM (Eastern)",
+      "milestone": "M10"
+    },
+    {
       "file": "routines/chief-friday-wrap.prompt",
       "name": "Friday wrap",
       "owner": "Chief",
@@ -316,6 +453,22 @@
       "account": "business",
       "when": "Every day at 1:15 AM (Eastern)",
       "milestone": "M3"
+    },
+    {
+      "file": "routines/coach-daily-call-qc.prompt",
+      "name": "Daily call QC",
+      "owner": "Sales Coach",
+      "account": "business",
+      "when": "Weekdays at 7:30 AM (Eastern)",
+      "milestone": "M9"
+    },
+    {
+      "file": "routines/coach-weekly-report.prompt",
+      "name": "Weekly coaching report",
+      "owner": "Sales Coach",
+      "account": "business",
+      "when": "Fridays at 3:00 PM (Eastern)",
+      "milestone": "M9"
     },
     {
       "file": "routines/cog-eod-final-check.prompt",
@@ -366,6 +519,62 @@
       "milestone": "M8"
     },
     {
+      "file": "routines/life-special-dates.prompt",
+      "name": "Special dates check",
+      "owner": "Life Concierge",
+      "account": "personal",
+      "when": "Mondays at 9:00 AM (Eastern)",
+      "milestone": "M5"
+    },
+    {
+      "file": "routines/life-weekend-plan.prompt",
+      "name": "Weekend plan",
+      "owner": "Life Concierge",
+      "account": "personal",
+      "when": "Thursdays at 2:00 PM (Eastern)",
+      "milestone": "M5"
+    },
+    {
+      "file": "routines/peptide-ad-pulse.prompt",
+      "name": "Daily ad pulse",
+      "owner": "Media Buyer",
+      "account": "peptide",
+      "when": "Every day at 8:00 AM (Eastern)",
+      "milestone": "M6"
+    },
+    {
+      "file": "routines/peptide-blind-spot-check.prompt",
+      "name": "Blind-spot check",
+      "owner": "Peptide Operator",
+      "account": "peptide",
+      "when": "Fridays at 11:00 AM (Eastern)",
+      "milestone": "M6"
+    },
+    {
+      "file": "routines/peptide-creative-brief.prompt",
+      "name": "Weekly creative brief",
+      "owner": "Media Buyer",
+      "account": "peptide",
+      "when": "Mondays at 10:00 AM (Eastern)",
+      "milestone": "M6"
+    },
+    {
+      "file": "routines/peptide-morning-pulse.prompt",
+      "name": "Offer morning pulse",
+      "owner": "Peptide Operator",
+      "account": "peptide",
+      "when": "Every day at 8:30 AM (Eastern)",
+      "milestone": "M6"
+    },
+    {
+      "file": "routines/peptide-scale-memo.prompt",
+      "name": "Weekly scale memo",
+      "owner": "Scale Advisor",
+      "account": "peptide",
+      "when": "Sundays at 6:00 PM (Eastern)",
+      "milestone": "M6"
+    },
+    {
       "file": "routines/precall-midday.prompt",
       "name": "New bookings sweep",
       "owner": "Pre-Call Concierge",
@@ -381,5 +590,13 @@
       "when": "Every day at 7:00 AM (Eastern)",
       "milestone": "M8"
     }
+  ],
+  "projects": [
+    "projects/wescale-operator/SPEC.md",
+    "projects/landing-page-builder/SPEC.md",
+    "projects/voice-caller-tests/SPEC.md",
+    "projects/sales-dashboard/SPEC.md",
+    "projects/social-media-agent/SPEC.md",
+    "projects/outbound-test/SPEC.md"
   ]
 }
