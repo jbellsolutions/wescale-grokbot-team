@@ -1,0 +1,20 @@
+# Client facts and anything private stay on Chris's Mac only
+config/cog.json
+.env
+.env.*
+*.key
+*.pem
+
+# The vault holds real names and numbers once the team runs; keep only the skeleton in Git
+vault/Daily/*
+!vault/Daily/.gitkeep
+vault/Reps/*
+!vault/Reps/.gitkeep
+vault/Prospects/*
+!vault/Prospects/.gitkeep
+
+
+vault/.obsidian/workspace*.json
+
+.DS_Store
+node_modules/
