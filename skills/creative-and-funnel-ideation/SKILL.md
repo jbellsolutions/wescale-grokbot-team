@@ -6,12 +6,12 @@ description: Turn what is actually happening on COG sales calls into ad creative
 # Creative and funnel ideation
 
 **Inputs:**
-- the last 30 days of call clusters (`vault/Assets/Backlog.md`)
+- the last 30 days of call clusters (`/workspace/cog-team/vault/Assets/Backlog.md`)
 - the top objections and desires in the prospects' own words
 - show rate and close rate by lead source, from the COG reports where available
 - the current offer
 
-## Produce (one doc per request, in the drafts folder)
+## Produce (one Google Doc per request, in the Drive folder "GrokBot Drafts")
 
 1. **Angles (5):** each is a belief the prospect already has plus the mechanism that resolves it. Tie each to the calls that show it.
 2. **Hooks (10):** first lines for video and static ads, in prospect language. Mark which angle each serves.

@@ -5,6 +5,8 @@ description: Audit GoHighLevel dispositions against calendar status, call/SMS ac
 
 # Disposition audit
 
+Load `/workspace/cog-team/context/cog.json` (`ghl.dispositions`, `ghl.appointment_status_map`, `thresholds`). GoHighLevel is read through the `ghl` command (`/workspace/cog-team/ghl-super-hub/ghl`, read-only token; its private skills give the exact calls). If a source can't be read, put `UNKNOWN: <source>` on the run-log line and mark the flags that depend on it "unknown", not "ok".
+
 ## Compare, per appointment and per closer
 
 **Calendar status + GHL activity (calls, SMS, notes) + disposition field + the closer's EOD numbers**
@@ -32,5 +34,5 @@ Mike — reported 7 live calls · GHL: 5 completed, 1 no-show, 1 with no disposi
 ## Rules
 
 - Report the inconsistency. **Don't decide who's right.** Chris (or the closer, through Chris) fixes the source.
-- Log the events to the rep ledgers.
-- Never edit dispositions. If Chris says "fix it", draft the exact GHL change (field, old → new, appointment link) and wait for his OK.
+- Log the events to the rep ledgers (`/workspace/cog-team/vault/Reps/<Name>.md`).
+- Never edit dispositions. The GoHighLevel token is read-only, so nothing here could. If Chris says "fix it", draft the exact change (field, old → new, appointment link) for him or his team to make, and say it is a draft.

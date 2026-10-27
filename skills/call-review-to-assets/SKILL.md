@@ -5,23 +5,23 @@ description: Mine COG sales-call transcripts and the COG Sales Manager's finding
 
 # Call review → asset backlog
 
-1. **Gather** the last 7 days of call transcripts from `calls.transcript_source`. If it isn't configured, reply `NO_CLIENT_SOURCE` and stop.
-2. **Read the COG weekly review** for its recurring problems: show rate, no-shows, disposition errors.
+1. **Gather** the last 7 days of call transcripts from `calls.transcript_source` in `/workspace/cog-team/context/cog.json`. If it isn't configured, reply `NO_CLIENT_SOURCE` and stop. If the source can't be read, put `UNKNOWN: <source>` on the run-log line and stop. Also read open requests in `/workspace/cog-team/requests/growth-operator/`.
+2. **Read the COG weekly review** (`/workspace/cog-team/vault/Weekly/`) for its recurring problems: show rate, no-shows, disposition errors.
 3. **Extract from each call**, with timestamps:
    - objections (price, timing, spouse, trust, "need to think")
    - the point where the call turned
    - what the closer said that worked or failed
    - questions the prospect asked that pre-call content could have answered
 4. **Cluster** the findings across calls. Keep clusters with 3 or more occurrences, or those tied to lost cash.
-5. **For each cluster, write a backlog row** in `vault/Assets/Backlog.md`:
+5. **For each cluster, write a backlog row** in `/workspace/cog-team/vault/Assets/Backlog.md`:
 
 ```
 | Problem | Evidence (calls, timestamps) | Proposed asset | Owner | Status |
 | "Price" objection lost 6 calls | [call A 23:10], [call B 41:02]… | Rebuttal doc + 3 script lines + pre-call video pick | Growth Operator | proposed |
 ```
 
-6. **Pick the top 1–3 by money at risk** and start them with `sales-asset-builder`. Send pre-call content gaps to the Pre-Call Concierge.
-7. **Send Chris a summary** (under 150 words): the top problems, the assets started, and the decisions needed.
+6. **Pick the top 1–3 by money at risk** and start them with `sales-asset-builder`. Send pre-call content gaps to the Pre-Call Concierge as requests in `/workspace/cog-team/requests/precall-concierge/`.
+7. **Send Chris a summary** (under 150 words): the top problems, the assets started, and the decisions needed. Write `/workspace/cog-team/daily/<today>/growth.md` so Chief can put it in the brief.
 
 ## Rules
 

@@ -7,32 +7,34 @@ description: Build the Circle of Greatness morning sales report for the previous
 
 ## Before anything
 
-Load `config/cog.json` and `docs/KPI-DEFINITIONS.md`. If the EOD source or GHL is not configured, reply `NO_CLIENT_SOURCE: <missing>` and stop.
+Load `/workspace/cog-team/context/cog.json` and `/workspace/cog-team/repo/docs/KPI-DEFINITIONS.md`. If the EOD source or GHL is not configured, reply `NO_CLIENT_SOURCE: <missing>` and stop.
+
+GoHighLevel is read through the `ghl` command (`/workspace/cog-team/ghl-super-hub/ghl`, read-only token; its private skills give the exact calls). The EOD sheet and calendars come through Connect apps.
 
 ## Steps
 
-1. **Report date:** the previous selling day (ET).
+1. **Report date:** the previous selling day (ET). If it isn't in `business.selling_days`, write "No selling day" and stop.
 2. **Reported numbers:**
    - Sum each mapped field (`eod.field_map`) per rep and for the team.
    - Missing reps contribute nothing. List them separately and never estimate their numbers.
-3. **Verified numbers (GHL + calendar)** for the configured sales calendars on the report date:
+3. **Verified numbers (GHL + calendar)** for the calendars in `ghl.calendars` on the report date:
    - appointments scheduled, cancelled, rescheduled, showed, no-show and still-open, per closer
    - setter attribution, by who booked
    - closes and deposits from opportunities/stages, if configured
 4. **Reconcile** every overlapping count:
-   - Use the "Two numbers, never one" rule from `docs/KPI-DEFINITIONS.md`.
+   - Use the "Two numbers, never one" rule from `KPI-DEFINITIONS.md`.
    - Flag per rep where the reported and verified numbers differ by the threshold or more.
 5. **Pull in the other audits** for the report date:
    - `cog-disposition-audit`
    - `cog-calendar-reconciliation`
-   - `cog-no-show-audit` (the sweeps already logged these; re-run only for gaps)
+   - `cog-no-show-audit` (the sweeps already logged these in `/workspace/cog-team/data/audits/`; re-run only for gaps)
 6. **Compute the derived metrics** and the vs-target figures. With no targets set, compare to the same weekday last week and to the 4-week average.
 7. **Build the attention list:**
    - only exceptions
    - one line each
    - rep, problem, evidence link
    - sorted by money at risk, then by repeat offenders
-8. **Save** the full report to `vault/Daily/<report date>.md` under `## Sales report`. Send the short version to Chief (and to Chris directly if he set `owner.report_channel`).
+8. **Save** the full report to `/workspace/cog-team/vault/Daily/<report date>.md` under `## Sales report` and the short version to `/workspace/cog-team/daily/<today>/sales.md`. Chief puts the headline in the 8:30 AM brief. Message nobody. Any source you couldn't read goes on the run-log line as `UNKNOWN: <source>`.
 
 ## Output (short version, under 180 words)
 

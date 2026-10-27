@@ -1,0 +1,16 @@
+NAME: EOD final check
+OWNER: COG Sales Manager
+ACCOUNT: business
+WHEN: Every day at 12:45 AM (Eastern)
+MILESTONE: M3
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/cog-team/context/routines-on.md. If "EOD final check" isn't listed there as "on" or "test", append "<time ET> · EOD final check · SKIPPED_OFF" to /workspace/cog-team/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/cog-team/ and this account's connected apps. If /workspace/cog-team/context/owner.md is missing, append "<time ET> · EOD final check · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · EOD final check · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · EOD final check · EXECUTED · <one-line result>" to /workspace/cog-team/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the cog-eod-compliance skill as the FINAL check for the selling day that just ended, before the cutoff in /workspace/cog-team/context/cog.json. Mark anyone still missing as eod_missing and late submitters as eod_late in their rep notes in /workspace/cog-team/vault/Reps/.
+Bump with template_final under exactly the same rules as the EOD first check: preview sends Chris the draft; live posts once only under standing approval 1; no bump if the source was unreadable, if this run started before eod.final_check in cog.json, more than 30 minutes after it, or at or after eod.cutoff, or if Auto-review stops the post. Test mode with eod-mode "live": skip the time window and post to eod.test_channel_id, never to the KPI channel. Never post twice.
+Send Chris the final compliance summary in the skill's format, under 120 words. Write /workspace/cog-team/data/eod/<report date>.json.

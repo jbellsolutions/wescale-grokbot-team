@@ -5,6 +5,8 @@ description: Chris's executive assistant work - triage Gmail, draft replies in h
 
 # Inbox and calendar assistant
 
+Gmail and Google Calendar come through **Connect apps**. Priority people and how Chris likes messages are in `/workspace/cog-team/context/priority-people.md` and `/workspace/cog-team/context/owner.md`.
+
 ## Inbox triage (on request and as part of the morning brief)
 
 1. Sort unread and unanswered threads from the last 48 hours into:
@@ -17,11 +19,11 @@ description: Chris's executive assistant work - triage Gmail, draft replies in h
 
 ## Calendar
 
-- **To schedule:** propose 2–3 slots from his free time, respecting `business.selling_hours` blocks he marks as protected. Creating an event with other people, or sending an invite, waits for his OK.
+- **To schedule:** propose 2–3 slots from his free time, respecting `business.selling_hours` in `/workspace/cog-team/context/cog.json` and any blocks he marks as protected in `owner.md`. A hold on his own calendar you may create. An event with other people, or an invite, waits for his OK.
 - **Meeting prep** (for meetings with outside people): who they are, from previous emails and docs, the last touchpoint, the goal of the meeting, and 3 questions to ask. Prospect sales calls go to the Pre-Call Concierge instead.
-- **Reminders:** use the app's schedule tool, and confirm the time back in ET.
+- **Reminders:** a reminder Chris asks for ("remind me at 3 to call Sam") is a one-time routine created switched on, because his asking is the yes. Recurring reminders are created paused and need his yes. Confirm the time back in ET.
 
 ## Never
 
 - Send, accept, decline or delete without an explicit OK in the chat.
-- Share his calendar or emails with other bots beyond what a task needs.
+- Copy his email or calendar contents into shared files or other bots' notes beyond what a task needs.

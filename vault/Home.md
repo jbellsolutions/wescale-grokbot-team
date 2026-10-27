@@ -1,13 +1,14 @@
 # GrokBot Vault — Chris HQ
 
-The team's written record. Bots write here; Chris reads it in Obsidian (Google Drive → "GrokBot Vault" → Open folder as vault).
+The team's written record. Bots write here; Chris reads it in Obsidian (Google Drive for desktop → "GrokBot Vault" → Open folder as vault). The vault lives on the bot computer at `/workspace/cog-team/vault/` and is copied to Drive every night.
 
 - [[Decisions]] — everything Chris approved, changed or assumed, with dates
-- `Playbooks/` — the team's skills and charters (managed by scripts/sync-drive.mjs; don't edit here)
-- `Config/cog.json` — Chris's facts: roster, EOD source, cutoffs, targets (the one real copy)
 - `Daily/` — one note per day: EOD compliance, sales report, appointments, brief ([[Templates/Daily]])
 - `Reps/` — one note per rep: compliance events, scores, links to days ([[Templates/Rep]])
+- `Weekly/` — the Monday review and the Friday wrap
 - `Assets/` — [[Assets/Backlog]] and [[Assets/Content-Library]]
 - `Prospects/` — one-page pre-call briefs
 
-Rules: every number links its source · unknown ≠ zero · drafts are marked [DRAFT].
+Chris's facts (roster, EOD source, cutoffs, targets) are not in the vault. They are in `/workspace/cog-team/context/cog.json`, which Chief keeps.
+
+Rules: every number links its source · unknown ≠ zero · drafts are marked [DRAFT] · notes are plain .md.

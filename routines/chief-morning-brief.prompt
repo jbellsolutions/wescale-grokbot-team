@@ -1,0 +1,15 @@
+NAME: Morning command brief
+OWNER: Chief
+ACCOUNT: business
+WHEN: Every day at 8:30 AM (Eastern)
+MILESTONE: M3
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/cog-team/context/routines-on.md. If "Morning command brief" isn't listed there as "on" or "test", append "<time ET> · Morning command brief · SKIPPED_OFF" to /workspace/cog-team/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/cog-team/ and this account's connected apps. If /workspace/cog-team/context/owner.md is missing, append "<time ET> · Morning command brief · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · Morning command brief · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · Morning command brief · EXECUTED · <one-line result>" to /workspace/cog-team/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the chief-command-brief skill. Read today's notes in /workspace/cog-team/daily/<today>/ (sales.md, and precall.md and growth.md when they exist), the approval queue, the run log /workspace/cog-team/log/runs-<YYYY-MM>.md, Chris's inbox since the last brief, his DMs and mentions in Slack, and today's events on every connected calendar.
+Send Chris one brief under 200 words: Needs you (numbered, up to five, each with a link and a ready action), COG yesterday (from sales.md only; if it's missing say "COG report not in"), today, and team health. Team health uses the team-health-check skill: list every routine in /workspace/cog-team/context/team-registry.md marked ON that was due since the last brief and has no line in the run log ("didn't run, paused?"), and any source that was UNKNOWN twice in a row. Save the brief to /workspace/cog-team/daily/<today>/brief.md.

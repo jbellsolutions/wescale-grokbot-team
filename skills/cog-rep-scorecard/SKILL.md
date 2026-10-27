@@ -5,17 +5,17 @@ description: Compute each COG closer's and setter's daily and weekly Sales Compl
 
 # Rep scorecard
 
-1. Read `docs/KPI-DEFINITIONS.md` → "Sales Compliance Score" for the components, weights and formulas. Never change the weights unless Chris asks; record any change in `vault/Decisions.md`.
-2. For each active rep, compute each component from the events and appointment rows in `vault/Daily/` and `vault/Reps/<Name>.md`:
+1. Read `/workspace/cog-team/repo/docs/KPI-DEFINITIONS.md` → "Sales Compliance Score" for the components, weights and formulas. Never change the weights unless Chris asks; record any change in `/workspace/cog-team/vault/Decisions.md`.
+2. For each active rep (roster in `/workspace/cog-team/context/cog.json`), compute each component from the events and appointment rows in `/workspace/cog-team/vault/Daily/` and `/workspace/cog-team/vault/Reps/<Name>.md`:
    - over the week (Mon–Sun ET)
    - over the trailing 30 days
-3. Leave out components with no data, and re-normalise the weights. Show "n/a" rather than 100% or 0%.
+3. Leave out components with no data, and re-normalise the weights. Show "n/a" rather than 100% or 0%. A component whose source was `UNKNOWN` that week is "n/a", not a low score.
 4. **Patterns** (the part Chris cares about), stated as counts with dates:
    - "missed no-show SOP 7× in 30 days (Oct 2, 5, 9…)"
    - "dispositions late every Friday"
    - "EOD late 4 of last 5 days"
 5. Update each rep note: a `## Scores` table, newest week first, plus links to the event days.
-6. **Output to Chris, sorted lowest score first:**
+6. **Output to Chris, sorted lowest score first.** Scores go to Chris only, never to a channel or a rep:
 
 ```
 Weekly scorecards — w/e Sun Oct 25

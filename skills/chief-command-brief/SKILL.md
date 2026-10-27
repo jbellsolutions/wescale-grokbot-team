@@ -6,12 +6,13 @@ description: Chris's one-screen morning brief - what needs him today across COG,
 # Command brief
 
 1. **Collect**, without redoing the specialists' work:
-   - the COG Sales Manager's 08:00 report: attention list and headline numbers
-   - Ops's 07:45 health line
-   - the Pre-Call Concierge's prep status for today's booked calls
-   - approvals waiting on Chris from every bot
-   - today's calendar
-   - inbox items that need a reply from him
+   - the COG Sales Manager's report: `/workspace/cog-team/daily/<today>/sales.md` (attention list and headline numbers)
+   - team health, from the `team-health-check` skill: routines that were due and didn't run, sources that were `UNKNOWN` twice in a row
+   - the Pre-Call Concierge's prep status for today's booked calls: `/workspace/cog-team/daily/<today>/precall.md`
+   - drafts waiting for approval from the Growth Operator: `/workspace/cog-team/daily/<today>/growth.md`
+   - approvals still waiting on Chris from every bot (`/workspace/cog-team/approved/`)
+   - today's calendar, on every connected calendar
+   - inbox items that need a reply from him, and his Slack DMs and mentions since the last brief
 2. **Rank "Needs you":**
    - money at risk
    - deadlines today
@@ -19,7 +20,8 @@ description: Chris's one-screen morning brief - what needs him today across COG,
    - repeat problems
    - Five items at most. Everything else goes in one summary line.
 3. Each item has a link and, where possible, a ready action ("draft ready", "approve?", "pick A or B").
-4. If a specialist didn't report, say so ("COG report not in by 08:30 — Ops checking"). Never fill its numbers in yourself.
-5. Send it to Chris (Slack DM or app chat, whichever he set) in under 200 words, using the format in `charters/chief.md`. Append it to `vault/Daily/<today>.md` under `## Brief`.
+4. If a specialist didn't report, say so ("COG report not in"). Never fill its numbers in yourself.
+5. **Number the items** and write them to `/workspace/cog-team/approved/<today>.md` exactly as shown, so "approve 1, 3" covers items 1 and 3 as shown. When Chris answers, record his exact words there and send each owning bot only its own approved items. If an item changes, ask again.
+6. Send it to Chris in your chat in under 200 words, using the format in `/workspace/cog-team/repo/agents/01-chief.md` ("The morning command brief"). Save it to `/workspace/cog-team/daily/<today>/brief.md` and append it to `/workspace/cog-team/vault/Daily/<today>.md` under `## Brief`.
 
-**Friday wrap** (17:00 ET): the week's wins, misses, decisions made (from `vault/Decisions.md`), open decisions, and the top 3 for next week.
+**Friday wrap** (17:00 ET): the week's wins, misses, decisions made (from `/workspace/cog-team/vault/Decisions.md`), open decisions, the top 3 for next week, routine reliability and the week's usage (from `team-health-check`). Under 200 words. Save it to `/workspace/cog-team/vault/Weekly/<week>-wrap.md`.

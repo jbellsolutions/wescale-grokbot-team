@@ -1,5 +1,5 @@
 {
-  "_readme": "Copy to config/cog.json (git-ignored) and fill it in during the intake (config/intake-interview.md). Every value marked REQUIRED must be real before any COG routine is enabled; a routine that finds one missing replies NO_CLIENT_SOURCE and stops. No passwords, tokens or API keys belong in this file.",
+  "_readme": "Chief copies this to /workspace/cog-team/context/cog.json and fills it in during the intake (/workspace/cog-team/repo/config/intake-interview.md). Every value marked REQUIRED must be real before any COG routine is switched on; a routine that finds one missing replies NO_CLIENT_SOURCE and stops. No passwords, tokens or API keys belong in this file.",
   "schema_version": 1,
   "business": {
     "name": "Circle of Greatness",
@@ -17,12 +17,13 @@
       "start": "09:00",
       "end": "22:00"
     },
-    "_timezone_note": "Reports and schedules are Eastern (Chris chose Eastern Daylight on Oct 16). If the Mac's clock doesn't follow US daylight saving (e.g. UTC-5 all year), it drifts one hour from ET when US daylight saving changes; run install-team.mjs --retime then."
+    "_timezone_note": "Reports and schedules are Eastern (Chris chose Eastern Daylight on Oct 16). Set the same time zone in Grok Bot Settings; routines run in the cloud on it."
   },
   "owner": {
     "name": "Chris",
     "slack_member_id": "REQUIRED e.g. U0123456789",
-    "report_channel": "dm",
+    "report_channel": "chat",
+    "_report_channel_note": "chat = each bot's own chat with Chris in Grok Bot (the default).",
     "phone_alerts": false
   },
   "roster": [
@@ -54,8 +55,10 @@
       "tab": null,
       "header_row": 1
     },
-    "slack_channel_id": "REQUIRED (the KPI channel the bot reads and, after M6, posts bumps in)",
+    "slack_channel_id": "REQUIRED (the KPI channel the bot reads and, once Chris gives standing approval 1 at M4, posts the EOD bump in)",
     "slack_workspace": "REQUIRED: the Slack workspace the KPI channel is in (WeScale or COG's own). Decides which Slack connection reads it.",
+    "test_channel_id": null,
+    "_test_channel_note": "Optional: a Slack channel only Chris is in. Used only by the go-live test in START-HERE Step 11; the bump in test mode posts here, never in the KPI channel.",
     "identity_column": "REQUIRED (the form field that says which rep submitted, e.g. 'Name' or 'Email')",
     "timestamp_column": "REQUIRED (e.g. 'Timestamp')",
     "report_date_rule": "submissions before cutoff count for the previous selling day",
@@ -84,8 +87,8 @@
   },
   "ghl": {
     "location_id": "REQUIRED",
-    "connection": "composio | private_integration_token (location-scoped pit- token stored only in the app's key store)",
-    "sales_calendar_ids": [
+    "connection": "ghl-super-hub command line at /workspace/cog-team/ghl-super-hub/ghl with a read-only private-integration token. The token is never written in this file.",
+    "calendars": [
       "REQUIRED"
     ],
     "appointment_status_map": {
@@ -175,8 +178,7 @@
   },
   "bump": {
     "identity": "bot",
-    "_identity_options": "bot (recommended; posts as COG Sales Manager) | owner_user_token (posts as Chris; needs a Slack user token with chat:write)",
-    "standing_approval_recorded": false,
+    "_identity_options": "bot (recommended; the team Slack app's bot token, shows as COG Sales Manager) | chris (posts through the Slack connector signed in as Chris, shows as him; no token)",
     "template_first": "{mentions} — EOD KPIs are missing for {report_date}. It's {time} ET. Please submit now. Cutoff is {cutoff} ET.",
     "template_final": "{mentions} — final call: EOD KPIs for {report_date} are still missing. Cutoff is {cutoff} ET."
   },
@@ -190,7 +192,8 @@
     "content_library_folder": null
   },
   "vault": {
-    "drive_folder": "GrokBot Vault",
-    "_note": "Drive is the shared home: this file lives at GrokBot Vault/Config/cog.json and is the real copy once uploaded by scripts/sync-drive.mjs."
+    "path": "/workspace/cog-team/vault",
+    "drive_backup_folder": "GrokBot Vault",
+    "_note": "The vault lives on the bot computer and is the source of truth. Chief copies it to the Drive folder 'GrokBot Vault' every night (routines/chief-vault-backup.prompt) so Chris can open it in Obsidian. Drive is the backup, not the home."
   }
 }

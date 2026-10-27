@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "name": "Chris's GrokBot team (WeScale / Circle of Greatness)",
+  "description": "A Grok Bot team for a sales manager: one main bot (Chief) plus a COG Sales Manager for nightly EOD compliance and bumps, the morning sales report, no-show, calendar and GoHighLevel audits and rep scorecards; a Pre-Call Concierge for closer briefs and Jeremy Haynes-style pre-call sequences; a Growth Operator that drafts sales and marketing assets from call data; and a read-only CFO on a separate personal account.",
+  "platform": "xAI Grok Bot (x.ai/bot)",
+  "entry_point": "START-HERE.md",
+  "repo_url": "https://github.com/jbellsolutions/wescale-grokbot-team",
+  "timezone": "America/New_York",
+  "accounts": {
+    "business": {
+      "lead_bot": "Chief",
+      "workspace": "/workspace/cog-team",
+      "bots": [
+        {
+          "name": "Chief",
+          "charter": "agents/01-chief.md",
+          "milestone": "M0"
+        },
+        {
+          "name": "COG Sales Manager",
+          "charter": "agents/02-cog-sales-manager.md",
+          "milestone": "M2"
+        },
+        {
+          "name": "Pre-Call Concierge",
+          "charter": "agents/03-precall-concierge.md",
+          "milestone": "M2"
+        },
+        {
+          "name": "Growth Operator",
+          "charter": "agents/04-growth-operator.md",
+          "milestone": "M2"
+        }
+      ],
+      "reserved": [
+        {
+          "name": "Peptide Operator",
+          "charter": "agents/90-reserved-peptide-operator.md",
+          "milestone": "M6"
+        }
+      ],
+      "routine_switch_file": "/workspace/cog-team/context/routines-on.md",
+      "eod_mode_file": "/workspace/cog-team/context/eod-mode.md",
+      "standing_approvals_file": "/workspace/cog-team/context/standing-approvals.md",
+      "config_file": "/workspace/cog-team/context/cog.json",
+      "run_log": "/workspace/cog-team/log/runs-<YYYY-MM>.md",
+      "ghl_command": "/workspace/cog-team/ghl-super-hub/ghl"
+    },
+    "personal": {
+      "lead_bot": "CFO",
+      "workspace": "/workspace/chris-personal",
+      "bots": [
+        {
+          "name": "CFO",
+          "charter": "agents/05-cfo.md",
+          "milestone": "M5"
+        }
+      ],
+      "routine_switch_file": "/workspace/chris-personal/context/routines-on.md"
+    }
+  },
+  "skills": [
+    {
+      "name": "agent-builder-loop",
+      "path": "skills/agent-builder-loop",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Chief"
+      ]
+    },
+    {
+      "name": "call-review-to-assets",
+      "path": "skills/call-review-to-assets",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Growth Operator"
+      ]
+    },
+    {
+      "name": "chief-command-brief",
+      "path": "skills/chief-command-brief",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Chief"
+      ]
+    },
+    {
+      "name": "cog-calendar-reconciliation",
+      "path": "skills/cog-calendar-reconciliation",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "cog-daily-sales-report",
+      "path": "skills/cog-daily-sales-report",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "cog-disposition-audit",
+      "path": "skills/cog-disposition-audit",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "cog-eod-compliance",
+      "path": "skills/cog-eod-compliance",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "cog-no-show-audit",
+      "path": "skills/cog-no-show-audit",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "cog-rep-scorecard",
+      "path": "skills/cog-rep-scorecard",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "cog-weekly-review",
+      "path": "skills/cog-weekly-review",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "creative-and-funnel-ideation",
+      "path": "skills/creative-and-funnel-ideation",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Growth Operator"
+      ]
+    },
+    {
+      "name": "exception-routing",
+      "path": "skills/exception-routing",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Chief"
+      ]
+    },
+    {
+      "name": "getting-started",
+      "path": "skills/getting-started",
+      "accounts": [
+        "business",
+        "personal"
+      ],
+      "used_by": [
+        "Chief",
+        "CFO"
+      ]
+    },
+    {
+      "name": "inbox-calendar-assistant",
+      "path": "skills/inbox-calendar-assistant",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Chief"
+      ]
+    },
+    {
+      "name": "jeremy-haynes-precall-playbook",
+      "path": "skills/jeremy-haynes-precall-playbook",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Pre-Call Concierge",
+        "Growth Operator"
+      ]
+    },
+    {
+      "name": "monthly-cash-flow-report",
+      "path": "skills/monthly-cash-flow-report",
+      "accounts": [
+        "personal"
+      ],
+      "used_by": [
+        "CFO"
+      ]
+    },
+    {
+      "name": "new-agent-onboarding",
+      "path": "skills/new-agent-onboarding",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Chief"
+      ]
+    },
+    {
+      "name": "personal-cfo-ledger",
+      "path": "skills/personal-cfo-ledger",
+      "accounts": [
+        "personal"
+      ],
+      "used_by": [
+        "CFO"
+      ]
+    },
+    {
+      "name": "precall-indoctrination-sequence",
+      "path": "skills/precall-indoctrination-sequence",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Pre-Call Concierge"
+      ]
+    },
+    {
+      "name": "sales-asset-builder",
+      "path": "skills/sales-asset-builder",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Growth Operator"
+      ]
+    },
+    {
+      "name": "slack-api",
+      "path": "skills/slack-api",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "COG Sales Manager"
+      ]
+    },
+    {
+      "name": "team-health-check",
+      "path": "skills/team-health-check",
+      "accounts": [
+        "business"
+      ],
+      "used_by": [
+        "Chief"
+      ]
+    }
+  ],
+  "routines": [
+    {
+      "file": "routines/cfo-weekly.prompt",
+      "name": "Weekly money check-in",
+      "owner": "CFO",
+      "account": "personal",
+      "when": "Sundays at 6:00 PM (Eastern)",
+      "milestone": "M5"
+    },
+    {
+      "file": "routines/chief-friday-wrap.prompt",
+      "name": "Friday wrap",
+      "owner": "Chief",
+      "account": "business",
+      "when": "Fridays at 5:00 PM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/chief-morning-brief.prompt",
+      "name": "Morning command brief",
+      "owner": "Chief",
+      "account": "business",
+      "when": "Every day at 8:30 AM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/chief-vault-backup.prompt",
+      "name": "Nightly vault backup",
+      "owner": "Chief",
+      "account": "business",
+      "when": "Every day at 1:15 AM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/cog-eod-final-check.prompt",
+      "name": "EOD final check",
+      "owner": "COG Sales Manager",
+      "account": "business",
+      "when": "Every day at 12:45 AM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/cog-eod-first-check.prompt",
+      "name": "EOD first check",
+      "owner": "COG Sales Manager",
+      "account": "business",
+      "when": "Every day at 11:30 PM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/cog-morning-report.prompt",
+      "name": "Morning sales report",
+      "owner": "COG Sales Manager",
+      "account": "business",
+      "when": "Every day at 8:00 AM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/cog-no-show-sweep.prompt",
+      "name": "No-show sweep",
+      "owner": "COG Sales Manager",
+      "account": "business",
+      "when": "Every day at 12:00 PM, 3:00 PM, 6:00 PM and 9:00 PM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/cog-weekly-review.prompt",
+      "name": "Weekly review and scorecards",
+      "owner": "COG Sales Manager",
+      "account": "business",
+      "when": "Mondays at 8:30 AM (Eastern)",
+      "milestone": "M3"
+    },
+    {
+      "file": "routines/growth-weekly.prompt",
+      "name": "Weekly call review",
+      "owner": "Growth Operator",
+      "account": "business",
+      "when": "Tuesdays at 10:00 AM (Eastern)",
+      "milestone": "M8"
+    },
+    {
+      "file": "routines/precall-midday.prompt",
+      "name": "New bookings sweep",
+      "owner": "Pre-Call Concierge",
+      "account": "business",
+      "when": "Every day at 1:00 PM (Eastern)",
+      "milestone": "M8"
+    },
+    {
+      "file": "routines/precall-morning.prompt",
+      "name": "Booked-call briefs and sequences",
+      "owner": "Pre-Call Concierge",
+      "account": "business",
+      "when": "Every day at 7:00 AM (Eastern)",
+      "milestone": "M8"
+    }
+  ]
+}

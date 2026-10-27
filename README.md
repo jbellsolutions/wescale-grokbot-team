@@ -1,64 +1,60 @@
 # Chris's GrokBot Team
 
-**One main GrokBot that runs a team of AI specialists for Chris's businesses.** It starts with Circle of Greatness sales management. The rule it runs by: *AI watches everything. Chris manages the exceptions.*
+**One main GrokBot that runs a team of AI specialists for Chris's businesses,** starting with Circle of Greatness sales management. The rule it runs by: *AI watches everything. Chris manages the exceptions.*
 
-Built for [Better than GrokBot](https://github.com/jbellsolutions/better-than-grokbot) on Chris's Mac, with each bot working on its own Orgo cloud computer. A [Grok Bot (xAI) edition](grok-bot/) uses the same charters and skills.
+Built for [Grok Bot](https://x.ai/bot) by xAI. You give this link to your own Grok Bot, and it builds the whole team itself.
 
-## Install by dropping the link
+## Set it up: one paste
 
-Open **Codex** on your Mac (Work mode, running on your Mac) and paste this. Claude Code works too.
+1. Open the **Grok Bot** desktop app. Your Grok plan has to include Grok Bot.
+2. Choose **New chat (+) → Create new Bot**.
+3. Paste this as its first message:
 
 ```text
-Build my GrokBot from https://github.com/jbellsolutions/wescale-grokbot-team
-
-Clone it, read AGENTS.md and follow INSTALL.md step by step on this Mac. Install Better than
-GrokBot, load my whole team, interview me for the facts it needs, and connect my tools read-only
-first. Walk me through every step in plain English and tell me exactly what to click when you
-need me. Keep every key out of the chat, logs and Git. Keep all routines paused until the dry run
-passes. Finish only when the INSTALL.md acceptance tests pass, then tell me what works, what's
-waiting on me, and what I do next.
+Build my GrokBot team from this repo: https://github.com/jbellsolutions/wescale-grokbot-team
+Read START-HERE.md first and follow it step by step. This is my business account.
+Walk me through every step and ask me before anything goes live.
 ```
 
-It will ask you for:
-- your keys (OpenRouter, Orgo, Composio), typed into a hidden prompt
-- a few sign-ins (Slack, Google, GoHighLevel)
-- a short interview: your reps, where EODs land, your KPI channel, targets and cutoffs
+It becomes **Chief**, your main GrokBot, and builds the rest. It tells you what it's doing at each step and exactly what to click when it needs you:
+- a few sign-ins (Slack, Google, GoHighLevel), done in the Grok Bot app;
+- your approval rules, pasted into Settings;
+- a short interview: your reps, where EODs land, your KPI channel, cutoffs, targets and no-show rules.
 
-Everything else it does itself.
+Nothing goes to your team until you've seen five nights of previews and said yes.
+
+**Your personal money** goes on a second Grok account, so the business bots can never see it. Do the same paste there and say "This is my personal account."
 
 ## The team
 
 | Bot | What it does for you |
 |---|---|
-| **Chief** (main GrokBot) | Your one point of contact. Inbox, calendar, the 8:30 AM brief, and it routes everything else |
-| **COG Sales Manager** | The 11:30 PM EOD check and bumps, the 8 AM sales report, no-show and disposition audits, weekly rep scorecards |
-| **Growth Operator** | Turns what happens on calls into scripts, SOPs, follow-ups, objection docs, training, ad hooks and funnel copy, as drafts you approve |
-| **Pre-Call Concierge** | A brief for every booked call, and a Jeremy Haynes-style pre-call sequence picked for that prospect |
-| **Ops** | Keeps the team healthy, and teaches you to build the next agent |
-| **CFO** (Personal workspace) | Your private money manager. Read-only |
+| **Chief** (main GrokBot) | Your one point of contact. The 8:30 AM brief, your inbox and calendar, the approval queue, team health. Routes everything else, and builds new agents with you |
+| **COG Sales Manager** | The 11:30 PM EOD check and bump, the 8 AM sales report, no-show, calendar and GHL disposition audits, weekly rep scorecards |
+| **Pre-Call Concierge** | A brief for every booked call, and a Jeremy Haynes-style pre-call sequence picked for that prospect, as drafts you approve |
+| **Growth Operator** | Turns what happens on calls into scripts, SOPs, objection docs, training, ad hooks and funnel copy, as drafts you approve |
+| **CFO** (personal account) | Your private money manager. Read-only |
 
 ## What's in here
 
 | Path | What |
 |---|---|
-| `START-HERE.md` | **Chris, start here.** Plain English: install, first week, daily routine |
-| `INSTALL.md` | The step-by-step walkthrough the setup agent follows, with acceptance tests |
-| `AGENTS.md` / `CLAUDE.md` | The brief for Claude Code / Codex |
-| `charters/` | Project charter, team charter, one charter per agent |
-| `skills/` | 20 skills (`SKILL.md`), one per recurring job |
-| `team.json` | The bots, workspaces and 16 routines the installer creates |
-| `config/` | The COG data contract (`cog.example.json`) and the intake interview |
-| `policies/permissions.md` | What each bot may do alone, what needs your OK, what never happens |
-| `docs/` | KPI definitions, your operator SOP, the build-your-next-agent guide, migration from the Oct 16 Hermes bot |
+| `START-HERE.md` | The build steps your Grok Bot follows, with the tests it must pass |
+| `PROJECT_CHARTER.md` | The project: why, goals, who owns what, rules, milestones, risks, decisions |
+| `agents/` | One charter per bot, each with the Profile it saves as its standing role |
+| `routines/` | Every scheduled job, created paused, switched on only after your yes |
+| `skills/` | 22 skills the bots save as private skills |
+| `policies/` | What each bot may do alone, what needs your OK, what never happens, and how data is handled |
+| `config/` | The COG data contract (`cog.example.json`) and the setup interview |
+| `docs/` | KPI definitions, your operator SOP, the build-your-next-agent guide, Slack setup, the Obsidian vault, moving off the Oct 16 Hermes bot |
 | `vault/` | The Obsidian vault skeleton (daily reports, rep notes, decisions) |
-| `scripts/` | `install-team.mjs` (loads the team into the app), `verify.mjs` (package checks) |
-| `grok-bot/` | How to load the same team into Grok Bot (xAI) instead |
+| `manifest.json` | The team, skills and routines in one file |
+
+The earlier Better than GrokBot edition (Mac app on Orgo, installed by Codex or Claude Code) is kept under the git tag [`btg-edition`](https://github.com/jbellsolutions/wescale-grokbot-team/tree/btg-edition).
 
 ## Privacy
 
-This repository holds no rep names, Slack or GHL IDs, revenue figures or keys:
-- Your facts live in `GrokBot Vault/Config/cog.json` in your own Google Drive, uploaded from a git-ignored local file.
-- Reports live in your own Google Drive vault.
-- Keys live in the app's protected key store.
-
-The repository is public so the install link works from any Mac without a GitHub login. It describes the team and how it works. Nothing in it is a secret: everything private stays in your Drive and on your Mac.
+This repository is public so the link works for any Grok Bot. Nothing in it is a secret:
+- Your facts (reps, Slack IDs, targets) live in `/workspace/cog-team/context/cog.json` on your own Grok Bot computer.
+- Reports live in your vault there, backed up to your own Google Drive.
+- Keys and tokens go in through hidden prompts, never in chat or in this repo.

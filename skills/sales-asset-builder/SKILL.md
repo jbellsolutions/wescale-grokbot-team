@@ -18,10 +18,10 @@ description: Draft finished COG sales assets - SOPs, call scripts, follow-up seq
 
 ## Steps
 
-1. Read the backlog row and its evidence. Pull Chris's existing SOPs and scripts (`knowledge.sops_folder`) so you don't contradict them.
+1. Read the backlog row (`/workspace/cog-team/vault/Assets/Backlog.md`) and its evidence. Pull Chris's existing SOPs and scripts (`knowledge.sops_folder` in `/workspace/cog-team/context/cog.json`) so you don't contradict them.
 2. Draft in COG's voice. For indoctrination and mechanism language, use `jeremy-haynes-precall-playbook`.
-3. Create the Google Doc in the drafts folder (`calls.drafts_folder`). The title is `[DRAFT] <asset> — <date>`. It opens with a "Why this exists" box linking the evidence.
-4. Update the backlog status to `draft ready` and send Chris the link plus a 3-line summary. Ask **approve / revise / drop**.
+3. Create the Google Doc in the Drive folder "GrokBot Drafts" (`calls.drafts_folder`), through Connect apps. Create new docs only. The title is `[DRAFT] <asset> — <date>`. It opens with a "Why this exists" box linking the evidence.
+4. Update the backlog status to `draft ready` and put the link and a 3-line summary in `/workspace/cog-team/daily/<today>/growth.md` and in the summary to Chris. Chief lists it in the brief for him to **approve / revise / drop**.
 5. On revise: change only what he asked for, keep a short change note at the top, and ask again.
 
 ## Never

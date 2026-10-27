@@ -7,11 +7,13 @@ description: Check that every COG no-show got the full no-show SOP (two call att
 
 ## Before anything
 
-Load `no_show_sop` and the roster from `config/cog.json`. If GHL isn't configured, reply `NO_CLIENT_SOURCE` and stop.
+Load `no_show_sop`, `thresholds` and the roster from `/workspace/cog-team/context/cog.json`. If GHL isn't configured, reply `NO_CLIENT_SOURCE` and stop.
+
+GoHighLevel is read through the `ghl` command (`/workspace/cog-team/ghl-super-hub/ghl`, read-only token; its private skills give the exact calls). Slack is read through the Slack connector (Connect apps). If a source can't be read, put `UNKNOWN: <source>` on the run-log line.
 
 ## Steps
 
-1. **Find no-shows** since the last sweep. A no-show is an appointment whose start + `window_minutes` has passed and that is either:
+1. **Find no-shows** since the last sweep (since 12:00 AM ET for the first sweep of the day). If no COG appointment ended since the last sweep, write `NO_CHANGE` to the run log and stop. A no-show is an appointment whose start + `window_minutes` has passed and that is either:
    - GHL status in `appointment_status_map.no_show`, or
    - still open with no call activity: treat it as a **suspected no-show** and label it that way.
 2. **For each no-show, gather evidence** from the start time to start + `window_minutes`:
@@ -24,9 +26,10 @@ Load `no_show_sop` and the roster from `config/cog.json`. If GHL isn't configure
    - ✓ with a link
    - ✗ when the source was read and nothing was found
    - `?` when the source was unreadable. A `?` is never counted as a violation.
-5. **Violation** = any ✗.
-   - Log `no_show_sop_miss` (and `slow_lead_response` if it applies) to `vault/Reps/<Closer>.md`.
-   - Alert Chris by DM straight away, one message per sweep, grouped:
+5. **Write the findings** to `/workspace/cog-team/data/audits/<date>-no-show.md`.
+6. **Violation** = any ✗.
+   - Log `no_show_sop_miss` (and `slow_lead_response` if it applies) to `/workspace/cog-team/vault/Reps/<Closer>.md`.
+   - Message Chris, one message per sweep, grouped:
 
 ```
 ⚠ No-show process violations (15:00 sweep)
@@ -35,11 +38,11 @@ John · Sarah Smith · 13:00 ET
 Mike · Ray Ortiz · 14:00 ET · first call at +18 min (SOP: 5)
 ```
 
-6. **No violations:** one line to the log only. Don't DM Chris about normal activity.
+7. **No violations:** one line in the run log only (`EXECUTED · 0 violations`). Don't message Chris about normal activity.
 
-## Real-time upgrade (only if available)
+## Real-time alerts (milestone M7, not yet)
 
-If you can schedule one-time checks from this routine (the app's `schedule` tool), then at the 12:00 sweep schedule a check at each remaining appointment's start + `window_minutes` for today. If not, say "real-time checks unavailable; sweeps only" in the weekly review. Milestone M7 adds a GHL webhook.
+A routine runs on a schedule, so these sweeps catch a violation within three hours, not within minutes. Alerts within minutes of an appointment need a GoHighLevel webhook to a routine trigger (milestone M7). Until then, say "real-time checks unavailable; sweeps only" in the weekly review.
 
 ## Never
 

@@ -12,6 +12,8 @@ vault/Reps/*
 !vault/Reps/.gitkeep
 vault/Prospects/*
 !vault/Prospects/.gitkeep
+vault/Weekly/*
+!vault/Weekly/.gitkeep
 
 
 vault/.obsidian/workspace*.json

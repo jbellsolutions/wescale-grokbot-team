@@ -5,9 +5,11 @@ description: Reconcile every closer's scheduled sales calls (closer, lead, time,
 
 # Calendar reconciliation
 
+Calendars come through Connect apps; GoHighLevel through the `ghl` command (`/workspace/cog-team/ghl-super-hub/ghl`, read-only token; its private skills give the exact calls). Load `/workspace/cog-team/context/cog.json`.
+
 ## Steps
 
-1. For the window (default: the report date, or "since the last sweep"), list every appointment on the configured sales calendars, with:
+1. For the window (default: the report date, or "since the last sweep"), list every appointment on the sales calendars (`ghl.calendars` and each rep's `calendar_id`), with:
    - `closer`, from the calendar owner or the GHL assigned user
    - `lead`: GHL contact name and ID
    - `start`, in ET
@@ -23,7 +25,7 @@ description: Reconcile every closer's scheduled sales calls (closer, lead, time,
    - **Was it dispositioned?** The configured disposition field is set.
    - **Was there a follow-up?** A next appointment, task or follow-up disposition.
 4. Still "booked/confirmed" at the morning report means `calendar_stale`.
-5. Write one row per appointment to `vault/Daily/<date>.md` under `## Appointments`:
+5. Write one row per appointment to `/workspace/cog-team/vault/Daily/<date>.md` under `## Appointments`:
 
 ```
 14:00 · John → Sarah Smith (#c_123) · showed ✓ · live ✓ (34m) · dispo "Follow Up" ✓ · follow-up Thu 11:00 ✓
@@ -32,5 +34,5 @@ description: Reconcile every closer's scheduled sales calls (closer, lead, time,
 
 ## Rules
 
-- Evidence over assumptions. If call records aren't readable, mark "live: unknown", not "live: no".
+- Evidence over assumptions. If call records aren't readable, mark "live: unknown", not "live: no", and put `UNKNOWN: <source>` on the run-log line.
 - Don't edit calendars or GHL.

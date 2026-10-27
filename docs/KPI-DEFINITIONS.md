@@ -1,6 +1,6 @@
 # COG KPI and compliance definitions
 
-One set of definitions every bot and report uses. If Chris's form or GHL uses different words, map them in `config/cog.json`. Don't change these.
+One set of definitions every bot and report uses. If Chris's form or GHL uses different words, map them in `/workspace/cog-team/context/cog.json`. Don't change these.
 
 ## The selling day
 

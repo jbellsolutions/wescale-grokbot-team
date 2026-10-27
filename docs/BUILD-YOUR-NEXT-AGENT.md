@@ -2,7 +2,9 @@
 
 Chris's ask: *"Don't just build shit for me. Teach me how to build ONE agent correctly from beginning → end: Idea → architecture → Claude Code → integrations → data → prompts/instructions → automations → testing → deployment."*
 
-This page is that loop. **The COG Sales Manager is the worked example** at each step. When you build the peptide agent, do the same ten steps. Ops runs it with you (`skills/agent-builder-loop`).
+This page is that loop, for Grok Bot. **The COG Sales Manager is the worked example** at each step. When you build the peptide agent, do the same ten steps. Chief runs it with you (`skills/agent-builder-loop`), and you start it by telling Chief: "let's build the peptide agent together".
+
+On Grok Bot there is no separate build tool to open. Chief writes the files and creates the bot; you answer questions and do the few things only a person can do (sign-ins, secrets, Settings screens).
 
 ---
 
@@ -19,52 +21,38 @@ Then list the 3–5 tasks you actually repeat. Each one needs:
 
 *COG:* the 11:30 PM EOD check; the morning numbers; no-show follow-up checks; disposition checks; the weekly scorecard.
 
-### 2. Architecture: a new agent, or a skill?
+### 2. Architecture: a new bot, or a skill?
 
-| Same data, same owner, same approvals? | → a **skill** of an existing agent |
+| Same data, same owner, same approvals? | → a **skill** of an existing bot |
 |---|---|
-| Different data, different audience, different risk? | → a **new agent** |
+| Different data, different audience, different risk? | → a **new bot** |
 
-*COG:* your seven jobs (KPI Monitor, Calendar Monitor, GHL Auditor…) all use the same data and report to you, so they're **seven skills of one agent**. Growth assets need different tools and approvals, so that's a separate agent. Jeremy Haynes material is knowledge, not a job, so it's a skill.
+*COG:* your seven jobs (KPI Monitor, Calendar Monitor, GHL Auditor…) all use the same data and report to you, so they're **seven skills of one bot**. Growth assets need different tools and approvals, so that's a separate bot. Jeremy Haynes material is knowledge, not a job, so it's a skill.
+
+Then the **account**. Every bot on one Grok account shares one computer: its files, its browser sessions and its logins. If the new bot's data or logins must stay apart from COG's, it needs its own Grok account (and its own plan). *COG:* your money is on a separate personal account for exactly this reason.
 
 ### 3. Charter: the agent's job description
 
-Copy the template in `skills/new-agent-onboarding/SKILL.md`. The parts that matter most:
+Chief writes a new file `/workspace/cog-team/repo/agents/NN-name.md` from the template in `skills/new-agent-onboarding/SKILL.md`. The parts that matter most:
 - **Owns / does not own:** stops two bots fighting over the same thing.
 - **Approvals:** what it may do alone, what asks first, what never happens.
 - **Done looks like:** how you'll know it's working.
+- **Profile:** the standing role the bot saves to memory word for word. It says the job, what it may do alone, what needs approval and the never-list.
+- **Memory seed:** the facts the bot must always remember.
 
-*COG:* `charters/cog-sales-manager.md`.
+*COG:* `agents/02-cog-sales-manager.md`. A charter holds your facts, so it stays on the bot computer. It is never pushed to the public GitHub repo.
 
-### 4. Role: the 500-character version
+### 4. Create the bot
 
-The app gives each bot a role of 500 characters or less. It reads that in every conversation. Squeeze the charter into: **job + what it may do alone + what needs approval.**
+In the Grok Bot app: **New chat (+) → Create new Bot**. Rename it by clicking its name. Then Chief sends it the setup message from `START-HERE.md` Step 7, with the new charter file filled in. The bot saves its Profile and replies "ready".
 
-*COG:* the `<!-- role -->` block at the top of its charter.
+If Chief can't create it, Chief tells you exactly what to click and gives you the message to paste as the bot's first message.
 
-### 5. Claude Code: let it do the typing
+*COG:* the COG Sales Manager was created exactly this way in `START-HERE.md` Step 7.
 
-Open Claude Code in this package folder and say:
+### 5. Skills: one per recurring task
 
-> "Add a new agent called Peptide Operator. Use docs/BUILD-YOUR-NEXT-AGENT.md and the intake in charters/peptide-operator.md. Interview me, write the charter and skills, add it to team.json, run scripts/verify.mjs, then install it with scripts/install-team.mjs --only 'Peptide Operator'."
-
-That covers steps 3–8 for you while you answer questions. Same loop, faster hands.
-
-### 6. Integrations: connect read-only first
-
-List every app the agent needs. Connect each at **read** first, and prove it by having the bot quote one real record.
-
-*COG:* Slack (KPI channel history), Sheets (EOD form), Calendar, GoHighLevel. The Oct 16 Slack problem, no channel history, would have been caught right here.
-
-### 7. Data: the facts it depends on
-
-Write down every ID, field name and threshold the agent needs, in a config file. **If something's missing, the agent must stop and say `NO_CLIENT_SOURCE`, not guess.**
-
-*COG:* `config/cog.json`: roster, EOD field map, KPI channel, cutoffs, dispositions, no-show SOP, targets.
-
-### 8. Instructions: one skill per recurring task
-
-Each `SKILL.md` has:
+Each recurring task becomes a `SKILL.md` with:
 - when to use it
 - the steps
 - the exact output format
@@ -74,25 +62,44 @@ Write it so a new hire could follow it. Two rules always go in:
 - **Unknown is not zero.** A source it can't read is "unknown".
 - **Every claim names its source.**
 
+Chief saves each one as a **private skill**. Private skills are one library shared by every bot on the account, so each skill is then switched on for its bot: **Connect apps** (sidebar) → the connected count next to the title → **Private skills**. A private skill is saved as text, so every path inside it is absolute (`/workspace/cog-team/...`).
+
 *COG:* `skills/cog-eod-compliance/SKILL.md`.
 
-### 9. Automations: routines, created paused
+### 6. Apps: connect read-only first
 
-Turn each trigger into a routine (daily, weekdays, weekly or once) and **create it paused**.
+List every app the agent needs. In **Connect apps**, search, choose **Add** and sign in. Connect each at **read** first, and prove it by having the bot quote one real record.
 
-*COG:* 9 routines, at 23:30, 00:45, 08:00, the 12/15/18/21 sweeps, and Monday 08:30.
+*COG:* Slack (KPI channel history), Sheets (EOD form), Calendar, GoHighLevel. The Oct 16 Slack problem, no channel history, would have been caught right here.
 
-When a tool can't do what you need, name it as **the tool's limit**, not your design. *COG:* routines can't fire "within 5 minutes of a no-show", so sweeps cover it for now and a webhook comes later. The requirement didn't shrink.
+### 7. Data: the facts it depends on
 
-### 10. Testing and deployment: dry run, then your OK
+Write down every ID, field name and threshold the agent needs, in a config file in `/workspace/cog-team/context/`. **If something's missing, the agent must stop and say `NO_CLIENT_SOURCE`, not guess.**
 
-1. Run every routine as drafts-to-you for a few days.
-2. Mark each output right or wrong. Fix the config and skills until two runs in a row are right.
-3. Turn routines on, and give **act** access only where the charter allows.
-4. Write the go-live decision in `vault/Decisions.md`.
+*COG:* `context/cog.json`: roster, EOD field map, KPI channel, cutoffs, dispositions, no-show SOP, targets.
 
-*COG:* five dry-run nights, then the one standing approval for the EOD bump.
+### 8. Routines: created paused
+
+Turn each trigger into a routine and **create it paused**. Chief writes one prompt file per routine in `/workspace/cog-team/repo/routines/`, copied from an existing one, so it keeps the same header and the same switch check, test mode, isolation guard, lean run and run-log lines. The bot that owns the job creates the routine, because a routine belongs to the bot that creates it: ask it, in plain words, with the time in Eastern. Every routine goes in `context/team-registry.md` as PAUSED.
+
+*COG:* five routines for the COG Sales Manager: the 11:30 PM and 12:45 AM EOD checks, the 8:00 AM report, the no-show sweep (four times a day) and the Monday review.
+
+**When a tool can't do what you need, name it as the tool's limit, not your design.** Grok Bot caps a bot at 50 routines, wants schedules at least 5 minutes apart, and may pause routines after a long absence. *COG:* a routine can't fire "within 5 minutes of a no-show", so sweeps cover it for now and a GoHighLevel webhook comes later. The requirement didn't shrink.
+
+### 9. Test, then your yes
+
+1. List the routine in `context/routines-on.md` as `<name>: test`.
+2. Open the bot's **Details** tab and press **Test** on the routine. In test mode every message goes to you only and starts with "TEST", and nothing is sent anywhere else.
+3. Mark each output right or wrong. Fix the config and skills until two runs in a row are right.
+4. Tell Chief your yes in your own words. Chief marks the routine `on` in `routines-on.md`, the bot resumes it (**Resume** on the **Details** tab), the registry says ON, and the decision goes in `vault/Decisions.md`.
+5. Anything that writes (a post, an email, a record change) is allowed only where the charter says so, and the Auto-review **Ask first** rules still apply.
+
+*COG:* five preview nights, then the one standing approval for the EOD bump.
+
+### 10. Keep the registry true
+
+Chief keeps `context/team-registry.md` current: the bot, its routines, its connections and the names of its secrets. Every morning the brief lists any routine that was due and didn't log a run, so a silent pause is caught the next day.
 
 ---
 
-**You've done it once when:** the peptide agent exists, its routines are on, it passed its dry run, and you did steps 1–4 and 6–10 yourself.
+**You've done it once when:** the peptide agent exists, its routines are on, it passed its test, and you did steps 1–3 and 5–9 yourself.

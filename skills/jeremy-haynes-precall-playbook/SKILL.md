@@ -8,7 +8,7 @@ description: Use Jeremy Haynes' pre-call indoctrination philosophy and teaching 
 ## Where the knowledge lives
 
 - The full material was collected into a repository and a here.now page during the Oct 16 session, on Chris's side: transcripts, links, PDFs and notes.
-- Its link is `config/cog.json` → `knowledge.jeremy_haynes_kb_url`. If it's missing, reply `NO_CLIENT_SOURCE: Jeremy Haynes knowledge base link` and ask Chris for it.
+- Its link is `knowledge.jeremy_haynes_kb_url` in `/workspace/cog-team/context/cog.json`. If it's missing, reply `NO_CLIENT_SOURCE: Jeremy Haynes knowledge base link` and ask Chris for it.
 - Read the repository's README first. It says how the material is organised and how to search it.
 - **Cite the source** (video/transcript and timestamp, or document and page) for any specific claim about what Jeremy teaches. If the knowledge base doesn't cover a question, say so. Don't fill the gap from general memory.
 

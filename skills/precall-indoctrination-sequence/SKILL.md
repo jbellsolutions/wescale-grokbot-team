@@ -5,9 +5,11 @@ description: For each booked COG call, profile the prospect from GoHighLevel dat
 
 # Pre-call indoctrination sequence
 
+GoHighLevel is read through the `ghl` command (`/workspace/cog-team/ghl-super-hub/ghl`, read-only token; its private skills give the exact calls). Calendars come through Connect apps. If GHL can't be read, put `UNKNOWN: GoHighLevel` on the run-log line and write no briefs from guesses.
+
 ## 1. Find the work
 
-List the booked appointments from now to +72h on the sales calendars that have no brief in `vault/Prospects/` yet.
+List the booked appointments from now to +72h on the sales calendars (`ghl.calendars` in `/workspace/cog-team/context/cog.json`) that have no brief in `/workspace/cog-team/vault/Prospects/` yet. If there are none, write `NO_CHANGE` and stop. Skip anyone who opted out or has no consent on record, and say so in the batch.
 
 ## 2. Profile each prospect
 
@@ -24,13 +26,13 @@ Use the GHL contact fields, the booking-form answers, the lead source, the conve
 
 ## 3. Pick the content
 
-From `vault/Assets/Content-Library.md`, where every item is tagged by situation, awareness and objection:
+From `/workspace/cog-team/vault/Assets/Content-Library.md`, where every item is tagged by situation, awareness and objection:
 - 1 mechanism explainer
 - 1–2 proof pieces that match the situation
 - 1 objection pre-handle per likely objection (two at most)
 - the FAQ answers to the questions they asked
 
-If nothing fits, list the gap and send it to the Growth Operator.
+Use only proof marked as permitted. If nothing fits, list the gap and send it to the Growth Operator as a request in `/workspace/cog-team/requests/growth-operator/`.
 
 ## 4. Draft the sequence
 
@@ -47,7 +49,7 @@ SMS stays under 300 characters, with no links in the first SMS unless the number
 
 ## 5. Write the closer brief
 
-`vault/Prospects/<date>-<lead>.md`, one page:
+`/workspace/cog-team/vault/Prospects/<date>-<lead>.md`, one page:
 - who they are
 - what they want
 - likely objections and the pre-handles sent
@@ -57,12 +59,13 @@ SMS stays under 300 characters, with no links in the first SMS unless the number
 
 ## 6. Approval
 
-- Send Chris a batch for approval: sequences + briefs. He approves per prospect, or per template once it has proven itself.
-- Approved messages are sent through GHL (an approved action, logged with links).
-- A per-template auto-send is a separate go-live decision recorded in `vault/Decisions.md`.
+- Send Chris one batch for approval: sequences + briefs. He approves per prospect, or per template once it has proven itself, by telling Chief ("approve all except Ray").
+- **The bots send nothing.** The GoHighLevel token is read-only, so Chris or his team loads the approved messages into GoHighLevel and sends them.
+- A per-template auto-send (for example a GHL workflow Chris builds) is a separate go-live decision with its own standing approval, recorded in `/workspace/cog-team/vault/Decisions.md`.
+- Write today's summary, with any missing briefs, to `/workspace/cog-team/daily/<today>/precall.md`.
 
 ## Never
 
-- Message a prospect without approval, or one who opted out or has no consent.
+- Message a prospect directly from the bot, add anyone to a GHL workflow, or draft for one who opted out or has no consent on record.
 - Invent proof.
 - Promise results.

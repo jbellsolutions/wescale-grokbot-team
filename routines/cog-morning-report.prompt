@@ -1,0 +1,15 @@
+NAME: Morning sales report
+OWNER: COG Sales Manager
+ACCOUNT: business
+WHEN: Every day at 8:00 AM (Eastern)
+MILESTONE: M3
+STATUS: Created paused. Turned on only after Chris says yes.
+---
+Switch check: read /workspace/cog-team/context/routines-on.md. If "Morning sales report" isn't listed there as "on" or "test", append "<time ET> · Morning sales report · SKIPPED_OFF" to /workspace/cog-team/log/runs-<YYYY-MM>.md and stop.
+Test mode: if it's listed as "test", send every message to Chris only, never to a channel or anyone else, and start each message with "TEST".
+Isolation guard: work only in /workspace/cog-team/ and this account's connected apps. If /workspace/cog-team/context/owner.md is missing, append "<time ET> · Morning sales report · NO_CLIENT_SOURCE" to the run log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, append "<time ET> · Morning sales report · NO_CHANGE" to the run log and stop.
+Run log: when you finish, append "<time ET> · Morning sales report · EXECUTED · <one-line result>" to /workspace/cog-team/log/runs-<YYYY-MM>.md, or FAILED with the reason. A source you couldn't read is UNKNOWN in your output, never zero.
+
+Use the cog-daily-sales-report skill for the previous selling day: reported vs verified numbers, mismatches between the EOD source and GoHighLevel or the calendar, disposition and no-show findings, the attention list with evidence links, and source status. Formulas come only from /workspace/cog-team/repo/docs/KPI-DEFINITIONS.md.
+Write the full report to /workspace/cog-team/vault/Daily/<date>.md and the short version to /workspace/cog-team/daily/<today>/sales.md for Chief's 8:30 brief. Message nobody. If yesterday wasn't a selling day, write "No selling day" and stop.

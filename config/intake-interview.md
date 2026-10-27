@@ -1,9 +1,10 @@
-# Intake interview: filling `config/cog.json`
+# Intake interview: filling `context/cog.json`
 
-**For the setup agent:**
-- Ask Chris **one question at a time**, in plain English, and fill `config/cog.json` as you go.
-- Look up every ID yourself through the connected apps where possible. Only ask Chris to confirm.
-- If he doesn't know an answer, keep the default and note it in `vault/Decisions.md` as "assumed, confirm later".
+**For Chief (run through the `getting-started` skill):**
+- Ask Chris **one question at a time**, in plain English, and fill `/workspace/cog-team/context/cog.json` as you go. The schema is `/workspace/cog-team/repo/config/cog.example.json`.
+- Look up every ID yourself through the connected apps where possible. Only ask Chris to confirm. Slack, Sheets and GoHighLevel are connected after the intake (`START-HERE.md` Steps 5 and 6), so what you can't see yet stays `REQUIRED`; fill it in then and have Chris confirm it.
+- If he doesn't know an answer, keep the default and note it in `/workspace/cog-team/vault/Decisions.md` as "assumed, confirm later".
+- Never ask for a password, token or key here.
 
 ## A. The team (→ `roster`)
 
@@ -17,19 +18,22 @@
 ## B. EODs (→ `eod`)
 
 4. "When a closer submits their EOD, where does it go? A Google Form into a Sheet, a Slack workflow, a GHL form, something else?" → `source_type`. For a Sheet, get the spreadsheet and the tab.
-5. Open one real submission together. Map each question or column to the standard fields in `docs/KPI-DEFINITIONS.md` → `field_map`. Note which column identifies the rep and which is the timestamp.
-6. "Which Slack channel is the KPI channel, and is it in WeScale or in COG's own Slack?" → `slack_channel_id`, `slack_workspace`. If it's COG's own, the bot reads it through Chris's Slack connection there (`INSTALL.md` step 5). Make sure that access is in place.
+5. Open one real submission together. Map each question or column to the standard fields in `/workspace/cog-team/repo/docs/KPI-DEFINITIONS.md` → `field_map`. Note which column identifies the rep and which is the timestamp.
+6. "Which Slack channel is the KPI channel, and is it in WeScale or in COG's own Slack?" → `slack_channel_id`, `slack_workspace`. Chris has to be signed in to that workspace in Connect apps so the bot can read it (`START-HERE.md` Step 5). If it's COG's own workspace, the team's posting app needs that workspace's admin to approve it (`docs/SLACK-SETUP.md`).
 7. "11:30 PM ET is the first check. When's the real cutoff?" (Default: final check 12:45 AM, cutoff 1:00 AM ET.)
 8. "Do setters submit EODs too?"
 
 ## C. Bumps (→ `bump`)
 
-9. "Should the bump come from the COG Sales Manager bot (recommended), or look like it's from your own Slack account?" Your own account needs a Slack user token. Explain that tradeoff.
+9. "Should the bump come from the COG Sales Manager bot (recommended), or look like it's from your own Slack account?" → `bump.identity`:
+   - `bot` (recommended): the team Slack app posts it, and it shows as "COG Sales Manager". It needs the app installed in the KPI channel's workspace and a bot token, which Chris pastes once with **Take over**.
+   - `chris`: it posts through the Slack connector signed in as Chris, so it shows as him. No token, no app.
+   Explain the tradeoff. Tell him the bump goes live at milestone M4, after five good preview nights, and not before.
 10. Show him the two bump templates. "Want any wording changed?" Keep them factual, with no insults.
 
 ## D. GoHighLevel (→ `ghl`)
 
-11. Location ID; which calendars are sales calls → `sales_calendar_ids`.
+11. Location ID; which calendars are sales calls → `calendars`.
 12. "When a call is over, where does the closer set the outcome? A custom field, an opportunity stage, a tag?" → `dispositions.field`. Read the exact list of allowed values → `dispositions.allowed`.
 13. Map GHL appointment statuses to showed / no-show / cancelled / rescheduled → `appointment_status_map`.
 
@@ -50,16 +54,18 @@
 20. "What's the link to the Jeremy Haynes knowledge base we built on Oct 16?" (The repo or here.now page; it was published from your side.) → `knowledge.jeremy_haynes_kb_url`.
 21. "Where are your case studies, testimonials and videos? Which are you allowed to share with prospects?" → `knowledge.content_library_folder`.
 
-## H. You (→ `owner`)
+## H. You (→ `owner`, `owner.md`, `priority-people.md`)
 
-22. Your Slack member ID; reports by Slack DM or in the app → `owner.report_channel`.
-23. "The team runs on Eastern. You chose Eastern Daylight on Oct 16, right?" Chris's clock doesn't follow US daylight saving (UTC-5 all year). Reports are always shown in ET. Tell him the date the installer printed, when routine times need `--retime`.
+22. Your Slack member ID → `owner.slack_member_id`. "Reports and the morning brief come to you in each bot's chat in the Grok Bot app. Anything you'd change?" → `owner.report_channel`.
+23. "The team runs on Eastern. You chose Eastern Daylight on Oct 16, right?" Check that Grok Bot's time zone setting is Eastern (`START-HERE.md` Step 2). Routines run in the cloud on it.
+24. "Which businesses should the team know about? Names only." → `owner.md`.
+25. "How do you like messages: short, numbered, numbers first? Anything you hate? When are you off, and which hours are protected?" → `owner.md`.
+26. "Who are your priority people: the ones whose messages need you fast?" → `priority-people.md`. Look up their Slack and email handles yourself.
 
 ## I. Personal (CFO; can wait)
 
-24. "Which bank and card accounts should the CFO see? Easiest: download CSV exports into Drive → `GrokBot Personal/Finance Exports` once a month. Never give it a login."
+27. Don't ask this here. It belongs on the personal Grok account: the CFO runs `getting-started` in personal mode and asks which bank and card accounts it should see. Easiest: Chris downloads CSV exports into Drive → `GrokBot Personal/Finance Exports` once a month. Never give it a login.
 
 When done:
-- Run `node scripts/verify.mjs --config`.
-- Upload it to Drive with `node scripts/sync-drive.mjs` (`INSTALL.md` step 8).
-- Read the summary back to Chris in 5 lines.
+- Check that `/workspace/cog-team/context/cog.json` is valid JSON, that every field marked `REQUIRED` is filled, and that nothing still says `REQUIRED` or `EXAMPLE`. Anything left goes on a short list for `START-HERE.md` Step 5.
+- Read the roster back to Chris in one message and get his "right". Then read the summary back in 5 lines.
