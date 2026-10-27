@@ -6,16 +6,17 @@ Built for [Better than GrokBot](https://github.com/jbellsolutions/better-than-gr
 
 ## Install by dropping the link
 
-Open **Claude Code** or **Codex** on your Mac and paste:
+Open **Codex** on your Mac (Work mode, running on your Mac) and paste this. Claude Code works too.
 
 ```text
-Install my GrokBot team from https://github.com/jbellsolutions/wescale-grokbot-team
+Build my GrokBot from https://github.com/jbellsolutions/wescale-grokbot-team
 
-Read AGENTS.md and follow INSTALL.md step by step. Install Better than GrokBot if it isn't
-already running, load my team, interview me for the facts it needs, connect my tools read-only
-first, and keep every key out of the chat, logs and Git. Keep all routines paused until the
-dry run passes. Finish only when the INSTALL.md acceptance tests pass, then tell me in plain
-English what works and what's waiting on me.
+Clone it, read AGENTS.md and follow INSTALL.md step by step on this Mac. Install Better than
+GrokBot, load my whole team, interview me for the facts it needs, and connect my tools read-only
+first. Walk me through every step in plain English and tell me exactly what to click when you
+need me. Keep every key out of the chat, logs and Git. Keep all routines paused until the dry run
+passes. Finish only when the INSTALL.md acceptance tests pass, then tell me what works, what's
+waiting on me, and what I do next.
 ```
 
 It will ask you for:

@@ -43,6 +43,20 @@ Chris's Mac ── Better than GrokBot app (localhost:3210) ── runs the bots
 - Every routine stays **paused** until step 9.
 - **Don't claim a step passed until its check passed.** Report plainly.
 
+### Walk Chris through it
+
+Chris isn't technical, and he starts the whole setup with one paste. Talk him through it:
+- Before each step, one plain sentence on what you're doing and why: "Step 2: installing the GrokBot app on your Mac."
+- At each **👤 Chris** step, tell him exactly what to click or type, one thing at a time, then wait for him. Never hand him five things at once.
+- After each step, say what's done and what's next. No logs or code unless he asks.
+- If something fails, say in one line what broke and what you're doing about it, then fix it.
+
+### If you're Codex
+
+- Run on **Chris's Mac** (a local task, not a cloud one). The app, his keys and his Drive folder are all on this Mac.
+- The install needs the internet (`git clone`, `npm ci`) and writes outside this folder (`~/better-than-grokbot`, `~/Library/LaunchAgents`). Before the first one, tell Chris that Codex will ask permission for these and he should approve them, or switch Codex to full access for the setup.
+- Keep the app running with the service in step 2, not a background command in this chat.
+
 ---
 
 ## Step 0. Read the plan
@@ -98,13 +112,17 @@ cp .env.example .env.local && chmod 600 .env.local      # only if .env.local doe
 
 Models: start with what worked on Oct 16 (`z-ai/glm-5.3-flash` for `BOPS_CHAT_MODEL`, `BOPS_SESSION_MODEL` and `BOPS_HARD_MODEL`). Chris can change them in Settings → Models. Providers bill separately.
 
+**Start it as a service, not from this chat.** The routines fire from this app, at night too (11:30 PM ET), so it has to keep running after the setup chat closes and after a restart. A server started from Codex or Claude Code can stop when the chat ends. Tell 👤 Chris it adds a login item that keeps the app running and the Mac from idle-sleeping, and get his OK. Then:
+
 ```bash
 npm run build
-npx next start --port 3210 --hostname 127.0.0.1    # in the background; keep it running
+npm run service:enable                             # login service on port 3210 (caffeinate keeps the Mac awake)
 curl -s http://127.0.0.1:3210/api/health           # must answer {"bops":true,...}
 ```
 
-Open http://localhost:3210 for Chris. With his OK: `npm run service:enable` (survives restarts).
+If `service:enable` says a standalone server is running, stop that one first. Open http://localhost:3210 for Chris.
+
+**👤 Chris: keep the Mac plugged in, signed in and online, with the lid open.** Closing a laptop lid still puts it to sleep, and a sleeping Mac runs no routines. If it does sleep through a check, each routine's clock check keeps the late run as a draft, so nothing posts at the wrong time.
 
 **Check:** a "hello" to the lead gets a reply. Ask first, because it uses his model credit.
 
@@ -236,6 +254,7 @@ node scripts/sync-drive.mjs --personal-dir "$HOME/Library/CloudStorage/GoogleDri
 ## Acceptance tests (all must pass before calling it done)
 
 - [ ] The app opens. Chief replies in the app and in Slack (WeScale).
+- [ ] The app runs as the login service (`.data/service.json` exists in the app folder), so it keeps running after the setup chat closes.
 - [ ] 6 bots exist with the roles from `charters/`. 16 routines exist. None was enabled without Chris's OK.
 - [ ] `node scripts/verify.mjs --config` passes. `GrokBot Vault/Config/cog.json` exists in Drive.
 - [ ] Each bot quotes one real record from each of its sources.
@@ -259,4 +278,13 @@ Keep it short and plain:
 - what's waiting on him
 - the date to run `--retime`, if any
 
-No secret values, ever. Then point him to `START-HERE.md` and `docs/OPERATOR-SOP.md`.
+No secret values, ever.
+
+**Then walk him through what happens next**, in your own words (from `START-HERE.md` sections 2–3):
+1. Tonight around 11:30 PM ET he gets the first EOD check as a draft, and tomorrow around 8:00–8:30 AM the sales report and Chief's brief. Nothing goes to the team.
+2. He replies "right" or "wrong: <what's off>" to each, for five nights.
+3. After five good nights he tells Chief "Approve the standing EOD bump". From then on only the bump posts by itself.
+4. His day: read Chief's morning brief and handle the "Needs you" items, about 10 minutes. Talk to Chief like a person.
+5. When he's ready to build his own agent: tell Ops "Let's build the peptide agent together."
+
+Ask whether he has questions, then point him to `START-HERE.md` and `docs/OPERATOR-SOP.md`.

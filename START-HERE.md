@@ -8,7 +8,7 @@ Bro, this is the whole thing in one place. You don't need to remember how it's b
 ## 1. Install it
 
 **Before you start, have these ready** (you have most of them already):
-- [ ] Your Mac, with Claude Code or the Codex app
+- [ ] Your Mac, with the Codex app (the one we set up on Oct 16)
 - [ ] OpenRouter account (from our Oct 16 session). Keep auto top-up **off**
 - [ ] Orgo account (you already gave Justin access)
 - [ ] A Composio account (composio.dev). This is how the bots reach Slack, Gmail, Calendar, Sheets and GoHighLevel
@@ -16,9 +16,10 @@ Bro, this is the whole thing in one place. You don't need to remember how it's b
 - [ ] Google Drive for desktop and Obsidian (both free). Your reports land in a Drive folder you open in Obsidian
 
 **Then:**
-1. Open Claude Code (or Codex).
-2. Paste the message in the box at the top of `README.md`.
-3. Answer its questions one at a time:
+1. Open Codex. Use **Work mode**, not Chat, and run it **on your Mac**, not in the cloud.
+2. Paste the message in the box at the top of `README.md`. Codex builds your GrokBot for you and tells you what it's doing at each step.
+3. When Codex asks permission to run something, approve it.
+4. Answer its questions one at a time:
    - **Keys:** it'll tell you to run a command in Terminal and paste the key there. The key stays hidden.
    - **Sign-ins:** Slack, Google, GoHighLevel. You click "Allow".
    - **The interview:** who your closers and setters are, where EODs land, your KPI channel, your cutoff, your no-show rules, your targets.

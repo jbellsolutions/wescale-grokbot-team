@@ -2,6 +2,8 @@
 
 You're installing an AI team for **Chris** (WeScale Marketing / Circle of Greatness) on **Better than GrokBot**, on his Mac. If the user asks you to install, set up or update this team, follow **`INSTALL.md`** top to bottom, including its acceptance tests. Don't claim setup is complete until those tests pass.
 
+Chris isn't technical. Walk him through every step as you go (`INSTALL.md` → **Walk Chris through it**). If you're Codex, read `INSTALL.md` → **If you're Codex** before you start.
+
 ## Mission
 
 One main GrokBot, **Chief**, that Chris talks to about anything. Behind it:
