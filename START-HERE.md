@@ -19,22 +19,22 @@ You do the work. Chris answers questions and does the few things only a person c
 
 ## Step 0. Which account is this?
 
-Chris's first message says "business account", "personal account" or "peptide account". If it doesn't, ask: "Is this your business account (COG, Slack, GoHighLevel), your personal account (your life and money) or your peptide account (the build-out offer)?"
+Chris's first message says "business account" or "peptide account". If it says "personal account", go to [Personal account](#personal-account) and build nothing. If it says none of these, ask: "Is this your business account (COG, Slack, GoHighLevel) or your peptide account (the build-out offer)?"
 
-| | Business account | Personal account | Peptide account |
-|---|---|---|---|
-| You become | **Chief** (`agents/01-chief.md`) | **Life Concierge** (`agents/07-life-concierge.md`) | **Peptide Operator** (`agents/09-peptide-operator.md`) |
-| Workspace | `/workspace/cog-team/` | `/workspace/chris-personal/` | `/workspace/peptide/` |
-| Your team | COG Sales Manager, Pre-Call Concierge, Growth Operator, Sales Coach | CFO, plus any private bot in `PERSONAL-CONTEXT.md` | Media Buyer, Scale Advisor |
-| Attachment Chris may add | `DREAM-MAP.md` | `PERSONAL-CONTEXT.md` | `GROWTH-CONTEXT.md` |
-| Follow | Steps 1–10, then 11–13 when their time comes | [Personal account](#personal-account) | [Peptide account](#peptide-account) |
+| | Business account | Peptide account |
+|---|---|---|
+| You become | **Chief** (`agents/01-chief.md`) | **Peptide Operator** (`agents/09-peptide-operator.md`) |
+| Workspace | `/workspace/cog-team/` | `/workspace/peptide/` |
+| Your team | COG Sales Manager, Pre-Call Concierge, Growth Operator, Sales Coach | Media Buyer, Scale Advisor |
+| Attachment Chris may add | `DREAM-MAP.md` | `GROWTH-CONTEXT.md` |
+| Follow | Steps 1–10, then 11–13 when their time comes | [Peptide account](#peptide-account) |
 
 The attachments are Chris's private notes from his calls with Justin: what he asked for, in his words. They never go in this repo. If one belongs to another account, don't read past its title; tell Chris which account it goes on.
 
 Then send Chris one message that checks:
 - His plan includes Grok Bot (xAI's plans page lists which ones). If it doesn't, stop here and tell him; never buy or upgrade for him.
 - The Grok Bot desktop app is open for this first session.
-- This Grok account is for one part of his life only. Every bot on one account shares one computer, its files and its logins. So COG lives on the business account, his life and money on a personal account, and the peptide offer on its own account (or in its own folder on the business account until he adds one).
+- This Grok account is for one business only. Every bot on one account shares one computer, its files and its logins. So COG lives on the business account and the peptide offer on its own account (or in its own folder on the business account until he adds one). His personal life and money aren't on Grok Bot at all: they run in his ChatGPT project, My Life.
 
 ## Step 1. Make your workspace
 
@@ -158,7 +158,7 @@ Run each with made-up or test data and report each to Chris as pass or fail:
 - **No config:** rename `context/cog.json` for a moment and run the morning report in test mode. It writes `NO_CLIENT_SOURCE` and stops. Put the file back.
 - **Bump stays a draft:** with `eod-mode.md` at `preview`, run the EOD first check in test mode. Chris gets the table and the exact bump it would post. Nothing appears in Slack.
 - **Approval:** ask Chief to email someone. It shows a draft and waits.
-- **Boundary:** ask Chief "how much did I spend this month?" It says that lives with the CFO on his personal account.
+- **Boundary:** ask Chief "how much did I spend this month?" It says his personal money lives in his ChatGPT project, My Life, and answers nothing from business data.
 - **Switch:** a routine not listed in `routines-on.md` writes `SKIPPED_OFF` to the run log and does nothing else.
 - **Lean run:** a no-show sweep with no appointments ended since the last one writes `NO_CHANGE` and sends nothing.
 - **GHL read-only:** Chris confirmed in Step 6 that the integration's scopes are all read-only.
@@ -201,20 +201,15 @@ Start after M4, or sooner if Chris asks "what's next?"
 
 ## Personal account
 
-Use this path when Chris said "personal account". You become the **Life Concierge**, the lead bot here. The CFO works beside you, with any private bot Chris's notes describe. Nothing on this account ever touches COG or the peptide offer.
+Chris's personal side (his life and his money) doesn't run on Grok Bot. It runs in ChatGPT, in a Project called **My Life**, which he sets up from the file Justin sent him, `Chris-Personal-ChatGPT-Setup.md`. An earlier message told him to paste this repo into a second Grok account for it. That's out of date.
 
-1. Do Step 1 with `/workspace/chris-personal/` as the workspace: folders `context/`, `daily/`, `ledger/`, `reports/`, `requests/`, `log/` and `vault/` (with `Life/` inside), and `context/routines-on.md` with the same first line as the business one. No `cog.json`, no team files.
-2. Do Step 2, but your role is `agents/07-life-concierge.md` and your name is **Life Concierge**. Save only the skills `manifest.json` lists for the personal account. Set the time zone to Eastern as in Step 2: routines run on Eastern, and the plans you send use the local time of the city he's in.
-3. Run `getting-started` in personal mode, the life part: where he is now and where he usually spends his time, his usual nights out, favourite places and never-agains, special dates (first names only), how he likes messages. If Chris attached or pasted `PERSONAL-CONTEXT.md`, start from it and confirm it in one message instead of asking again. Save its dream rows with the `dream-map` skill.
-4. Run `memory-import` with the personal prompt.
-5. **Owner step:** the personal Auto-review rules from `policies/APPROVALS.md`.
-6. **Owner step:** "In Connect apps, add Google Calendar and Google Drive with your personal Google account (and Gmail if you want booking confirmations read). In Drive, make a folder called GrokBot Personal with a folder inside called Finance Exports, and drop last month's bank and card CSV exports there." **Check:** list this weekend's events and the export files.
-7. Create the CFO (`agents/05-cfo.md`) as in Step 7, with `/workspace/chris-personal/` in the setup message instead of `/workspace/cog-team/` and `context/about-me.md` instead of `cog.json`. Then ask the CFO to run `getting-started` in personal mode, the money part, and `personal-cfo-ledger` once. It shows Chris the categories and fixes them with him.
-   If `PERSONAL-CONTEXT.md` has a "Private bot" section, follow it: it holds that bot's charter and skill, which stay off this public repo. Save them where it says, create the bot the same way, and add it to the registry. Never copy them into the repo.
-8. Create the `ACCOUNT: personal` routines paused, each by its owner, as in Step 9. Test each one, then turn it on after Chris's yes. Suggest starting with the Weekend plan this Thursday.
-9. Never connect this account to the business Slack, GoHighLevel, COG data or the peptide offer's apps.
+If Chris said "personal account":
+1. Build nothing: no workspace, no skills, no bots, no routines, no connected apps.
+2. Send him one message: "Your personal side runs in ChatGPT now, not on a Grok account. Open the setup file Justin sent you (Chris-Personal-ChatGPT-Setup.md) and follow its steps in ChatGPT. You don't need this Grok account for it."
+3. If he attached `PERSONAL-CONTEXT.md`, don't read past its title: the ChatGPT file replaces it.
+4. If he meant his business or peptide account, start Step 0 again.
 
-Milestone M5 is done when Chris uses one weekend plan and the CFO answers "how much did I spend this month?" from his own data.
+Milestone M5 is no longer part of this package.
 
 ## Peptide account
 

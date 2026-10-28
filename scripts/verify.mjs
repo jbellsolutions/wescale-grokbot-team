@@ -55,7 +55,7 @@ for (const f of agents) {
 // routines: header, owner exists, preamble, skills named exist, Eastern
 const HEADER = ["NAME", "OWNER", "ACCOUNT", "WHEN", "MILESTONE", "STATUS"];
 // The peptide account may run on its own Grok account or on the business account; its folder is the same either way.
-const WORKSPACES = { business: "/workspace/cog-team/", personal: "/workspace/chris-personal/", peptide: "/workspace/peptide/" };
+const WORKSPACES = { business: "/workspace/cog-team/", peptide: "/workspace/peptide/" };
 const routineFiles = readdirSync(join(ROOT, "routines")).filter((f) => f.endsWith(".prompt"));
 for (const f of routineFiles) {
   const text = read(join("routines", f));
@@ -63,7 +63,7 @@ for (const f of routineFiles) {
   const h = Object.fromEntries([...head.matchAll(/^([A-Z]+): (.*)$/gm)].map((m) => [m[1], m[2]]));
   check(HEADER.every((k) => h[k]), `routines/${f} header`, `routines/${f}: header needs ${HEADER.join(", ")}`);
   check(botNames.has(h.OWNER), `routines/${f} owner ${h.OWNER}`, `routines/${f}: OWNER "${h.OWNER}" has no charter in agents/`);
-  check(Object.hasOwn(WORKSPACES, h.ACCOUNT ?? ""), `routines/${f} account`, `routines/${f}: ACCOUNT must be business, personal or peptide`);
+  check(Object.hasOwn(WORKSPACES, h.ACCOUNT ?? ""), `routines/${f} account`, `routines/${f}: ACCOUNT must be business or peptide`);
   check(/\(Eastern\)$/.test(h.WHEN ?? ""), `routines/${f} WHEN is Eastern`, `routines/${f}: WHEN must end with "(Eastern)"`);
   check(/^STATUS: Created paused/m.test(head), `routines/${f} ships paused`, `routines/${f}: STATUS must say it's created paused`);
   for (const line of ["Switch check:", "Test mode:", "Isolation guard:", "Lean run:", "Run log:"]) check(body.includes(line), `routines/${f} ${line}`, `routines/${f}: missing "${line}"`);
@@ -95,6 +95,9 @@ const exposed = files.filter((p) => !p.endsWith("verify.mjs") && PRIVATE.test(re
 check(exposed.length === 0, "no private client details", `private detail in: ${exposed.map((p) => relative(ROOT, p)).join(", ")}`);
 const legacy = files.filter((p) => !p.endsWith("verify.mjs") && !p.endsWith("README.md") && !p.endsWith("AGENTS.md") && !/HERMES-TO-GROKBOT/.test(p) && /(install-team\.mjs|sync-drive\.mjs|team\.json|--retime|service:enable|localhost:3210)/.test(readFileSync(p, "utf8")));
 check(legacy.length === 0, "no Better than GrokBot install leftovers", `old install references in: ${legacy.map((p) => relative(ROOT, p)).join(", ")}`);
+// Chris's personal side runs in ChatGPT, never on Grok Bot: no personal account, bots or paths come back.
+const personal = files.filter((p) => !p.endsWith("verify.mjs") && !/vault\/Decisions\.md$/.test(p) && /(\/workspace\/chris-personal\/|Life Concierge|\bCFO\b|ACCOUNT: personal|second Grok account for the personal)/.test(readFileSync(p, "utf8")));
+check(personal.length === 0, "no personal Grok account", `personal-account leftovers in: ${personal.map((p) => relative(ROOT, p)).join(", ")}`);
 check(read(".gitignore").includes("config/cog.json"), "config/cog.json is git-ignored", ".gitignore must list config/cog.json");
 
 // optional: a filled-in client config

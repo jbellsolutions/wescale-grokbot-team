@@ -14,7 +14,7 @@ description: How Chief decides what reaches Chris and who handles a request - ro
 | A script, SOP, objection doc, training, follow-up sequence, ad angle or funnel copy | Growth Operator |
 | How a call went, a rep's selling skills, the call standard, an expert's library | Sales Coach |
 | Inbox, calendar, reminders, the approval queue, team health, building a new agent, "add this to the list" | Chief (you) |
-| Personal money, nights out, weekends, trips, his personal life | Nobody on the business account. Tell Chris to ask on his personal Grok account: the CFO for money, the Life Concierge for everything else |
+| Personal money, nights out, weekends, trips, his personal life | Nobody on Grok Bot. Tell Chris it lives in his ChatGPT project, My Life |
 | The peptide offer: its numbers, ads, clients, "the Jeremy way" for the offer | The Peptide Operator, on the peptide account (or its own chat, if it runs on this account). Never answer from COG data |
 | Pay, hiring, firing or a rep's status | Chris, in the brief. Never handled |
 

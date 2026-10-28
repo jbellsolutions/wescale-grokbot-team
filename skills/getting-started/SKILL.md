@@ -1,13 +1,13 @@
 ---
 name: getting-started
-description: Use once, right after a lead bot is set up, to run the intake - ask Chris the setup questions one at a time. Business mode (Chief) writes /workspace/cog-team/context/cog.json, owner.md and priority-people.md; personal mode (Life Concierge, then the CFO) and peptide mode (Peptide Operator) write their own account's context. Also use when Chris says "redo setup", "update my details" or "add a rep".
+description: Use once, right after a lead bot is set up, to run the intake - ask Chris the setup questions one at a time. Business mode (Chief) writes /workspace/cog-team/context/cog.json, owner.md and priority-people.md; peptide mode (Peptide Operator) writes its own account's context. Also use when Chris says "redo setup", "update my details" or "add a rep".
 ---
 
 # Getting started
 
-Pick the mode from the workspace you are in: `/workspace/cog-team/` is the **business mode** (you are Chief); `/workspace/chris-personal/` is the **personal mode** (the Life Concierge asks the life part, the CFO the money part); `/workspace/peptide/` is the **peptide mode** (you are the Peptide Operator). Never mix them.
+Pick the mode from the workspace you are in: `/workspace/cog-team/` is the **business mode** (you are Chief); `/workspace/peptide/` is the **peptide mode** (you are the Peptide Operator). Never mix them. Chris's personal life and money aren't asked about on Grok Bot: they live in his ChatGPT project, My Life.
 
-If Chris attached or pasted his notes for this account (`DREAM-MAP.md`, `PERSONAL-CONTEXT.md` or `GROWTH-CONTEXT.md`), start from them: skip each question they answer and confirm those answers in one message instead.
+If Chris attached or pasted his notes for this account (`DREAM-MAP.md` or `GROWTH-CONTEXT.md`), start from them: skip each question they answer and confirm those answers in one message instead.
 
 Ask one question at a time. Wait for each answer. Keep each question to one or two lines. Chris reads on his phone.
 
@@ -36,7 +36,7 @@ Never ask for passwords, tokens, keys, revenue history, bank details or account 
 | F. Numbers | `cog.json` → `targets`, `thresholds` |
 | G. Calls, assets and knowledge | `cog.json` → `calls`, `knowledge` |
 | H. You | `cog.json` → `owner`; `owner.md`; `priority-people.md` |
-| I. Personal | Nothing here. The CFO asks on the personal account |
+| I. Personal | Nothing here. His personal side runs in ChatGPT |
 
 **Check, then read it back:**
 1. `cog.json` is valid JSON.
@@ -45,38 +45,6 @@ Never ask for passwords, tokens, keys, revenue history, bank details or account 
 4. Go on with the next step of `/workspace/cog-team/repo/START-HERE.md`.
 
 **Later changes** (a new rep, a rep who leaves, a new target, a new cutoff, a new form field): only Chief edits `cog.json`, and only after Chris confirms the change in his own words. Log each in `/workspace/cog-team/vault/Decisions.md`. History stays in the vault; a rep who leaves is marked `active: false`, never deleted.
-
-## Personal mode (on the personal account)
-
-### Life part (Life Concierge)
-
-Ask these one at a time:
-
-1. "Where are you right now, and where do you usually spend your time?" Write the "Where I am: <city>, since <date>" line and the usual places to `/workspace/chris-personal/context/owner.md`. Plans use the local time of that city; routines still run on Eastern.
-2. "Which nights do you usually go out, and what's a great night for you?" → `owner.md`.
-3. "Name a few places you love, and any you never want suggested again." → `/workspace/chris-personal/vault/Life/Favorites.md` and `/workspace/chris-personal/vault/Life/Never-again.md`.
-4. "Any birthdays or anniversaries I should never let you miss? First names and dates." → `/workspace/chris-personal/context/special-dates.md`.
-5. "How do you like my messages: short, picks first?" → `owner.md`.
-
-Then hand the money part to the CFO once it exists (START-HERE, Personal account, step 7). When Chris moves cities, he tells any bot here "I'm in <city>", and the Life Concierge updates the "Where I am" line.
-
-### Money part (CFO)
-
-Ask these one at a time:
-
-1. "Which income sources should I track? Names only (a paycheck, a business payout, a side income)." No amounts.
-2. "Which accounts should I track? For each: a nickname, what kind (checking, savings, card, loan) and the bank's name." Names only. Never account numbers, balances or logins. Last 4 digits at most, and only if he wants them.
-3. "What are your money goals, and by when?" A target amount is fine; it stays in `/workspace/chris-personal/context/goals.md` on this account.
-4. "Which subscriptions do you already know about?" Names; amounts come from the exports.
-5. "Is the Drive folder `GrokBot Personal/Finance Exports` set up, and which accounts' exports will you drop there each month?"
-6. "How do you like the Sunday check-in: short and numbers first?"
-
-**Where the answers go** (all in `/workspace/chris-personal/context/`):
-- 1, 2, 5 and 6: `money.md` (income sources, the account list as names and kinds, the export folder and the accounts expected each month, how he likes the check-in)
-- 3: `goals.md`
-- 4: `subscriptions.md`
-
-The CFO builds `categories.md` and `debts.md` itself from the exports; balances come from the exports, never from what Chris types. Read the answers back in one short message and ask "anything to fix?". Then go on with the next step of the "Personal account" section of START-HERE.md.
 
 ## Peptide mode (Peptide Operator)
 

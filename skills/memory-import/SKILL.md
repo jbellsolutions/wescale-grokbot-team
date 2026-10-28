@@ -5,7 +5,7 @@ description: Use during setup, or whenever Chris asks, to bring what his ChatGPT
 
 # Memory import
 
-Chris has used ChatGPT for everything for years. It already knows his style, his businesses and his life. This skill moves what's useful onto this account, without passwords or other people's private details, and only the part that belongs on this account.
+Chris has used ChatGPT for everything for years. It already knows his style and his businesses. This skill moves what's useful onto this account, without passwords or other people's private details, and only the part that belongs on this account.
 
 ## When to use
 
@@ -16,7 +16,6 @@ Setup, right after the intake questions, or "import what ChatGPT knows", "update
 | Account | Saved to | Prompt |
 |---|---|---|
 | Business | `/workspace/cog-team/context/about-me.md` | Business |
-| Personal | `/workspace/chris-personal/context/about-me.md` | Personal |
 | Peptide | `/workspace/peptide/context/about-me.md` | Peptide |
 
 ## Steps
@@ -26,11 +25,6 @@ Setup, right after the intake questions, or "import what ChatGPT knows", "update
 **Business**
 ```
 Write a profile of me for my business AI team. Use everything you remember about me. Sections: my businesses and my role in each; my team and how I manage them; my standards and pet peeves; how I like reports (format, length, timing); the experts and frameworks I follow; my goals for the next 90 days and the next year; projects and AI ideas I've talked about. Leave out anything about my personal life, passwords, account numbers and anyone's private details. Plain bullet points.
-```
-
-**Personal**
-```
-Write a profile of me for my personal AI assistants (planning and money). Use everything you remember about me. Sections: how I talk and like to be talked to; my week (where I live, my routines, the nights I go out); what I love (food, places, music, activities, travel); what I'm working on personally (fitness, habits, goals); social life (what I like to do, who I spend time with, my style); money habits and goals. Leave out passwords, account numbers and anything private about other people beyond first names. Plain bullet points.
 ```
 
 **Peptide**
@@ -47,7 +41,7 @@ Write a brief on my peptide business build-out offer for my AI growth team. Use 
 
 - No secrets in the file.
 - Where ChatGPT's answer conflicts with what Chris told you here, his words here win. Note the conflict in the file.
-- Nothing from another account's prompt lands here: personal life stays personal, the offer stays on the peptide account, COG stays on business.
+- Nothing from another account's prompt lands here: the offer stays on the peptide account, COG stays on business, and his personal life stays in ChatGPT.
 
 ## Return
 

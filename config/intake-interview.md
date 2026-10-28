@@ -62,9 +62,9 @@
 25. "How do you like messages: short, numbered, numbers first? Anything you hate? When are you off, and which hours are protected?" → `owner.md`.
 26. "Who are your priority people: the ones whose messages need you fast?" → `priority-people.md`. Look up their Slack and email handles yourself.
 
-## I. Personal (personal account; can wait)
+## I. Personal (not on Grok Bot)
 
-27. Don't ask this here. It belongs on the personal Grok account: the CFO runs `getting-started` in personal mode and asks which bank and card accounts it should see. Easiest: Chris downloads CSV exports into Drive → `GrokBot Personal/Finance Exports` once a month. Never give it a login.
+27. Don't ask this. His personal life and money run in his ChatGPT project, My Life, from a setup file Justin sent him. If he brings it up, point him there.
 
 When done:
 - Check that `/workspace/cog-team/context/cog.json` is valid JSON, that every field marked `REQUIRED` is filled, and that nothing still says `REQUIRED` or `EXAMPLE`. Anything left goes on a short list for `START-HERE.md` Step 5.

@@ -23,7 +23,7 @@ Last updated: `YYYY-MM-DD` by Chief · Repo commit the private skills were saved
 
 | Name | Account | Charter | Created | State |
 |---|---|---|---|---|
-| | business or personal | `agents/NN-name.md` | `YYYY-MM-DD` | PLANNED, READY, PAUSED or RETIRED |
+| | business or peptide | `agents/NN-name.md` | `YYYY-MM-DD` | PLANNED, READY, PAUSED or RETIRED |
 
 ## Routines
 

@@ -16,16 +16,14 @@ What's specified, what's built and what's actually running, kept honest. Justin'
 | Pre-Call Concierge (business) | Yes | `agents/03-precall-concierge.md` | Not yet; routines wait for M8 |
 | Growth Operator (business) | Yes | `agents/04-growth-operator.md` | Not yet; routine waits for M8 |
 | Sales Coach (business) | Yes | `agents/06-sales-coach.md` | Not yet; routines wait for M9 and Chris's call standard |
-| Life Concierge (personal, lead) | Yes | `agents/07-life-concierge.md` | No: needs a second Grok account (M5) |
-| CFO (personal) | Yes | `agents/05-cfo.md` | No: needs a second Grok account (M5) |
-| Private personal bot | Yes, in Chris's private notes only | `PERSONAL-CONTEXT.md` (never in the repo) | No: needs a second Grok account (M5) |
-| Peptide Operator (peptide, lead) | Yes | `agents/09-peptide-operator.md` | No: needs a third Grok account, or Chris's OK to run on the business account (M6) |
+| Personal side (life and money) | Moved to ChatGPT on 2026-10-27 | Not in this repo: a private setup file for a ChatGPT Project, My Life | Chris sets it up in ChatGPT |
+| Peptide Operator (peptide, lead) | Yes | `agents/09-peptide-operator.md` | No: needs a second Grok account, or Chris's OK to run on the business account (M6) |
 | Media Buyer (peptide) | Yes | `agents/10-media-buyer.md` | No (M6) |
 | Scale Advisor (peptide) | Yes | `agents/11-scale-advisor.md` | No (M6) |
 | Dream Map and monthly check-in | Yes | `skills/dream-map`, `routines/chief-dream-checkin.prompt`; Chris's map is a private attachment, never in the repo | Not yet (M10) |
 | Project specs for the next builds | Spec'd, not built | `projects/`: WeScale Operator, landing-page builder, voice-caller tests, sales dashboard, social media agent, outbound test | No. Each starts from the Dream check-in |
-| 22 routines | Yes | `routines/*.prompt` | Not yet. Each is created paused and runs only when listed in its account's `context/routines-on.md` |
-| 30 private skills | Yes | `skills/` | Not yet saved |
+| 19 routines | Yes | `routines/*.prompt` | Not yet. Each is created paused and runs only when listed in its account's `context/routines-on.md` |
+| 27 private skills | Yes | `skills/` | Not yet saved |
 | The nightly EOD bump | Yes | `agents/02`, `skills/cog-eod-compliance`, `skills/slack-api` | No: preview first, then standing approval 1 (M4) |
 | Better than GrokBot edition | Yes | git tag `btg-edition` | Not installed |
 
@@ -67,8 +65,7 @@ Each unverified item has a fallback where it's used, so a "no" slows a step down
 | Retire the Slack bot token and OpenRouter key pasted into a chat on Oct 16 | Chris | The bump identity (Step 11) |
 | Which Slack the KPI channel is in; bump identity | Chris (intake) | M1 |
 | Pause the Oct 16 Hermes COG bot's posting | Chris, or Justin's team with his OK | M4 |
-| A second Grok account for the personal team | Chris and Justin | M5 |
-| A third Grok account for the peptide team, or OK to run it on the business account for now | Chris and Justin | M6 |
+| A second Grok account for the peptide team, or OK to run it on the business account for now | Chris and Justin | M6 |
 | The offer's targets, fulfilment steps, ad rules and "claims we never make" | Chris (peptide intake) | M6 |
 | Where call recordings live; the Jeremy Haynes knowledge base link | Chris | M8, M9 |
 | The COG call standard, approved in Chris's words | Chris, with the Sales Coach's draft | M9 |

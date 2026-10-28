@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Chris's GrokBot team (WeScale / Circle of Greatness)",
-  "description": "A Grok Bot team for a sales manager, across up to three Grok accounts. Business: one main bot (Chief) plus a COG Sales Manager for nightly EOD compliance and bumps, the morning sales report, no-show, calendar and GoHighLevel audits and rep scorecards; a Pre-Call Concierge for closer briefs and Jeremy Haynes-style pre-call sequences; a Growth Operator that drafts sales and marketing assets from call data; and a Sales Coach that scores every recorded call. Personal: a Life Concierge for nights out, weekends and special dates, and a read-only CFO. Peptide: a Peptide Operator, Media Buyer and Scale Advisor for the second business. Plus a Dream Map of everything Chris has asked for, and specs for what comes next.",
+  "description": "A Grok Bot team for a sales manager, across one or two Grok accounts. Business: one main bot (Chief) plus a COG Sales Manager for nightly EOD compliance and bumps, the morning sales report, no-show, calendar and GoHighLevel audits and rep scorecards; a Pre-Call Concierge for closer briefs and Jeremy Haynes-style pre-call sequences; a Growth Operator that drafts sales and marketing assets from call data; and a Sales Coach that scores every recorded call. Peptide: a Peptide Operator, Media Buyer and Scale Advisor for the second business. Plus a Dream Map of everything Chris has asked for, and specs for what comes next. His personal life and money run in a ChatGPT Project set up from a private file, not in this package.",
   "platform": "xAI Grok Bot (x.ai/bot)",
   "entry_point": "START-HERE.md",
   "repo_url": "https://github.com/jbellsolutions/wescale-grokbot-team",
@@ -45,26 +45,6 @@
       "ghl_command": "/workspace/cog-team/ghl-super-hub/ghl",
       "dream_map": "/workspace/cog-team/context/dream-map.md"
     },
-    "personal": {
-      "lead_bot": "Life Concierge",
-      "workspace": "/workspace/chris-personal",
-      "bots": [
-        {
-          "name": "Life Concierge",
-          "charter": "agents/07-life-concierge.md",
-          "milestone": "M5"
-        },
-        {
-          "name": "CFO",
-          "charter": "agents/05-cfo.md",
-          "milestone": "M5"
-        }
-      ],
-      "routine_switch_file": "/workspace/chris-personal/context/routines-on.md",
-      "run_log": "/workspace/chris-personal/log/runs-<YYYY-MM>.md",
-      "dream_map": "/workspace/chris-personal/context/dream-map.md",
-      "private_bots": "Any private bot is described only in Chris's PERSONAL-CONTEXT.md attachment, never in this repo."
-    },
     "peptide": {
       "lead_bot": "Peptide Operator",
       "workspace": "/workspace/peptide",
@@ -91,6 +71,9 @@
       "run_log": "/workspace/peptide/log/runs-<YYYY-MM>.md",
       "dream_map": "/workspace/peptide/context/dream-map.md"
     }
+  },
+  "personal_side": {
+    "runs_in": "ChatGPT, in a Project named My Life, set up from the private file Justin sends Chris. Nothing personal runs on Grok Bot or is in this repo."
   },
   "skills": [
     {
@@ -228,12 +211,10 @@
       "path": "skills/dream-map",
       "accounts": [
         "business",
-        "personal",
         "peptide"
       ],
       "used_by": [
         "Chief",
-        "Life Concierge",
         "Peptide Operator"
       ]
     },
@@ -264,13 +245,10 @@
       "path": "skills/getting-started",
       "accounts": [
         "business",
-        "personal",
         "peptide"
       ],
       "used_by": [
         "Chief",
-        "Life Concierge",
-        "CFO",
         "Peptide Operator"
       ]
     },
@@ -299,37 +277,15 @@
       ]
     },
     {
-      "name": "life-planning",
-      "path": "skills/life-planning",
-      "accounts": [
-        "personal"
-      ],
-      "used_by": [
-        "Life Concierge"
-      ]
-    },
-    {
       "name": "memory-import",
       "path": "skills/memory-import",
       "accounts": [
         "business",
-        "personal",
         "peptide"
       ],
       "used_by": [
         "Chief",
-        "Life Concierge",
         "Peptide Operator"
-      ]
-    },
-    {
-      "name": "monthly-cash-flow-report",
-      "path": "skills/monthly-cash-flow-report",
-      "accounts": [
-        "personal"
-      ],
-      "used_by": [
-        "CFO"
       ]
     },
     {
@@ -350,16 +306,6 @@
       ],
       "used_by": [
         "Peptide Operator"
-      ]
-    },
-    {
-      "name": "personal-cfo-ledger",
-      "path": "skills/personal-cfo-ledger",
-      "accounts": [
-        "personal"
-      ],
-      "used_by": [
-        "CFO"
       ]
     },
     {
@@ -414,14 +360,6 @@
     }
   ],
   "routines": [
-    {
-      "file": "routines/cfo-weekly.prompt",
-      "name": "Weekly money check-in",
-      "owner": "CFO",
-      "account": "personal",
-      "when": "Sundays at 6:00 PM (Eastern)",
-      "milestone": "M5"
-    },
     {
       "file": "routines/chief-dream-checkin.prompt",
       "name": "Monthly Dream check-in",
@@ -517,22 +455,6 @@
       "account": "business",
       "when": "Tuesdays at 10:00 AM (Eastern)",
       "milestone": "M8"
-    },
-    {
-      "file": "routines/life-special-dates.prompt",
-      "name": "Special dates check",
-      "owner": "Life Concierge",
-      "account": "personal",
-      "when": "Mondays at 9:00 AM (Eastern)",
-      "milestone": "M5"
-    },
-    {
-      "file": "routines/life-weekend-plan.prompt",
-      "name": "Weekend plan",
-      "owner": "Life Concierge",
-      "account": "personal",
-      "when": "Thursdays at 2:00 PM (Eastern)",
-      "milestone": "M5"
     },
     {
       "file": "routines/peptide-ad-pulse.prompt",

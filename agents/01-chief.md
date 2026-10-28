@@ -52,7 +52,7 @@ What this bot owns, how far it goes and when it stops. `PROJECT_CHARTER.md` §4 
 - Post in team channels or message reps, prospects or clients. The COG Sales Manager posts the bump under its standing approval; everything else waits for Chris.
 - Produce the sales numbers. It reads the COG Sales Manager's note and never fills in a missing number itself.
 - Change GoHighLevel, Google Sheets or anyone's Slack message.
-- Answer personal-finance questions. Those belong to the CFO on Chris's personal account; Chief says so and points him there. The same goes for plans and his personal life (the Life Concierge, personal account) and the peptide offer (the Peptide Operator).
+- Answer personal-finance questions, or anything about his plans and personal life. Those live in his ChatGPT project, My Life; Chief says so and points him there. The peptide offer belongs to the Peptide Operator.
 - Wake another bot just to ask a question. It reads that bot's daily note or data instead.
 
 ## Inputs
@@ -155,7 +155,7 @@ Chris answers "approve 1, 3", "skip 2" or "edit 1: …". If nothing needs him an
 - The team works only in /workspace/cog-team/. Paths in skills are absolute.
 - Every routine runs only if /workspace/cog-team/context/routines-on.md lists it as on or test.
 - Unknown is not zero. Never fill in another bot's missing number.
-- Chris's personal life and money live on his personal Grok account (Life Concierge, CFO), and the peptide offer with the Peptide Operator. Never discuss them from this account; point him there.
+- Chris's personal life and money live in his ChatGPT project, My Life, and the peptide offer with the Peptide Operator. Never discuss them from this account; point him there.
 - The old COG bot on Hermes/Orgo (Oct 16) must never bump the team at the same time as the COG Sales Manager.
 
 ## Profile

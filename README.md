@@ -1,6 +1,6 @@
 # Chris's GrokBot Team
 
-**One main GrokBot that runs a team of AI specialists for Chris's businesses and his life,** starting with Circle of Greatness sales management, then his personal life and his peptide offer. The rule it runs by: *AI watches everything. Chris manages the exceptions.*
+**One main GrokBot that runs a team of AI specialists for Chris's businesses,** starting with Circle of Greatness sales management, then his peptide offer. The rule it runs by: *AI watches everything. Chris manages the exceptions.*
 
 Built for [Grok Bot](https://x.ai/bot) by xAI. You give this link to your own Grok Bot, and it builds the whole team itself.
 
@@ -25,9 +25,9 @@ It becomes **Chief**, your main GrokBot, and builds the rest. It tells you what 
 
 Nothing goes to your team until you've seen five nights of previews and said yes.
 
-**Your personal life and money** go on a second Grok account, so the business bots can never see them: nights out, weekends, trips and your money. Do the same paste there, say "This is my personal account", and attach `PERSONAL-CONTEXT.md`.
+**Your personal life and money** run in ChatGPT, not on Grok Bot, so the business bots can never see them. Set up a ChatGPT Project called My Life from the setup file Justin sent you (`Chris-Personal-ChatGPT-Setup.md`). You don't need a second Grok account for it.
 
-**Your peptide offer** gets its own team on a third Grok account (recommended, so its ad and payment logins stay apart from COG's), or in its own folder on the business account until you add one. Do the same paste and say "This is my peptide account", with `GROWTH-CONTEXT.md` attached. Or tell Chief "set up the peptide team here".
+**Your peptide offer** gets its own team on a second Grok account (recommended, so its ad and payment logins stay apart from COG's), or in its own folder on the business account until you add one. Do the same paste and say "This is my peptide account", with `GROWTH-CONTEXT.md` attached. Or tell Chief "set up the peptide team here".
 
 ## The team
 
@@ -38,8 +38,6 @@ Nothing goes to your team until you've seen five nights of previews and said yes
 | **Pre-Call Concierge** | A brief for every booked call, and a Jeremy Haynes-style pre-call sequence picked for that prospect, as drafts you approve |
 | **Growth Operator** | Turns what happens on calls into scripts, SOPs, objection docs, training, ad hooks and funnel copy, as drafts you approve |
 | **Sales Coach** | Reviews every recorded call within a day, scores it with timestamps, coaches each rep weekly, and sends you only the calls that need you |
-| **Life Concierge** (personal) | Three weekend options every Thursday, nights out on request, restaurants, trips and the dates you can't miss. You book; it never pays. It also sets up anything extra your private notes describe |
-| **CFO** (personal) | Your private money manager. Read-only |
 | **Peptide Operator** (peptide) | Your offer's funnel from ad to cash every morning, the one bottleneck that matters this week, and every client's build-out on track |
 | **Media Buyer** (peptide) | Reads every ad account daily: scale, hold or cut on your rules, fatigue caught early, ten new hooks every Monday. Changes only what you approve |
 | **Scale Advisor** (peptide) | Your own "Jeremy AI": answers from the expert libraries with sources, builds "the Jeremy way", a Sunday scale memo, and a client edition when you want one |
@@ -54,7 +52,7 @@ Nothing goes to your team until you've seen five nights of previews and said yes
 | `PROJECT_CHARTER.md` | The project: why, goals, who owns what, rules, milestones, risks, decisions |
 | `agents/` | One charter per bot, each with the Profile it saves as its standing role |
 | `routines/` | Every scheduled job, created paused, switched on only after your yes |
-| `skills/` | 30 skills the bots save as private skills |
+| `skills/` | 27 skills the bots save as private skills |
 | `projects/` | Specs for the next builds on your Dream Map |
 | `policies/` | What each bot may do alone, what needs your OK, what never happens, and how data is handled |
 | `config/` | The COG data contract (`cog.example.json`) and the setup interview |

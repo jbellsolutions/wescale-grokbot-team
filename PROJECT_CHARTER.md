@@ -15,7 +15,7 @@ Loading this charter grants no permission to send, post, spend or switch on a ro
 
 ## 1. Why this project exists
 
-Chris manages the COG sales floor by hand. Every night he checks who posted their EOD KPIs. Every morning he rebuilds the numbers. All day he audits calendars, no-shows and GoHighLevel dispositions. He also runs WeScale, a peptide business and his own finances.
+Chris manages the COG sales floor by hand. Every night he checks who posted their EOD KPIs. Every morning he rebuilds the numbers. All day he audits calendars, no-shows and GoHighLevel dispositions. He also runs WeScale and a peptide business, and has his own life and finances to manage.
 
 On Oct 16 a COG bot was started on Hermes/Orgo. On Oct 27 Chris said the COG bot still wasn't doing the daily tasks. He has the pieces but not a working system or a way to run one.
 
@@ -28,7 +28,7 @@ On Oct 16 a COG bot was started on Hermes/Orgo. On Oct 27 Chris said the COG bot
 3. **Assets get built, not just suggested.** Scripts, SOPs, follow-ups, objection docs, training and funnel copy arrive as drafts Chris approves.
 4. **Prospects arrive warm.** Every booked call gets a closer brief and a Jeremy Haynes-style pre-call sequence, drafted for approval.
 5. **Every call gets reviewed.** The Sales Coach scores every recorded call within a day and coaches each rep weekly; Chris listens only to the calls that need him.
-6. **His life outside work is planned, on a separate Grok account.** A weekend plan every Thursday, nights out on request, no missed birthdays, and his personal money visible and read-only.
+6. **His life outside work stays out of this team.** It runs in a ChatGPT Project (My Life) set up from a private file Justin sends him, so no business bot ever sees it.
 7. **The peptide offer grows on rules, on its own team.** A morning pulse from ad to cash, a media buyer that reads every ad account, and his own "Jeremy AI" advisor.
 8. **Nothing he asked for gets lost.** Every goal and AI idea from the calls is on his Dream Map with an owner and a status.
 9. **Chris can build the next agent himself.** Each month Chief picks the next dream and builds it with him; his first own build is the WeScale Operator.
@@ -38,7 +38,6 @@ On Oct 16 a COG bot was started on Hermes/Orgo. On Oct 27 Chris said the COG bot
 
 **In scope**
 - The business Grok account ("Chris HQ"): Chief, COG Sales Manager, Pre-Call Concierge, Growth Operator and Sales Coach.
-- A separate personal Grok account: Life Concierge (lead) and CFO, plus any private bot described in Chris's own notes (never in this repo).
 - The peptide team: Peptide Operator (lead), Media Buyer and Scale Advisor, on its own Grok account or in its own folder on the business account (§13, open decision 9).
 - The Dream Map: each account's list of what Chris has asked for, kept by its lead bot, and the monthly Dream check-in.
 - Expert libraries (Jeremy Haynes first; Jeremy Miner and Cole Gordon next) that any bot can load from a link.
@@ -50,7 +49,7 @@ On Oct 16 a COG bot was started on Hermes/Orgo. On Oct 27 Chris said the COG bot
 **Out of scope for now (named so they aren't lost)**
 - **The WeScale agency operator** (client reporting, campaign monitoring, billing). Spec'd in `projects/wescale-operator/SPEC.md`: Chris's first own build, with Chief guiding him (M10).
 - **The other dreams with specs** in `projects/`: a landing-page builder, AI voice-caller tests, a sales dashboard, a social media agent and an outbound test. Each starts from a Dream check-in, never on its own.
-- **Bookings, purchases and personal-app actions.** The personal bots plan and draft; Chris books, pays and sends.
+- **His personal life and money.** They run in ChatGPT, from a private setup file, never on Grok Bot or in this repo (§13).
 - **Minute-level no-show alerts.** Phase 1 sweeps every three hours. Minute-level alerts need a GoHighLevel webhook to a routine trigger (milestone M7).
 - Moving money, messaging prospects without approval, changing CRM records without approval.
 
@@ -64,9 +63,7 @@ One accountable owner per job, per record and per outward action. No two bots wr
 | 02 | **COG Sales Manager** | business | EOD compliance, the morning sales report, calendar, no-show and disposition audits, rep scorecards, the weekly review | The nightly EOD bump in the KPI channel (the only unattended post), `data/eod/`, `vault/Reps/`, `daily/<date>/sales.md` | M1 |
 | 03 | **Pre-Call Concierge** | business | Closer briefs and pre-call sequences for every booked COG call | `vault/Prospects/`, `daily/<date>/precall.md`. Prospect messages are drafts only | M2 |
 | 04 | **Growth Operator** | business | The asset backlog and asset drafts built from calls and the sales data | `vault/Assets/`, new docs in the Drive folder "GrokBot Drafts" | M2 |
-| 05 | **CFO** | personal | Chris's personal ledger, cash flow and weekly money check-in | `ledger/`, `reports/`, the money files in `context/` | M5 |
 | 06 | **Sales Coach** | business | Call scorecards, rep coaching, team patterns, game film, expert libraries | `vault/Coaching/`, `libraries/`, `context/call-standard.md`, `daily/<date>/coaching.md` | M9 |
-| 07 | **Life Concierge** (personal lead) | personal | Weekend plans, nights out, restaurants, trips, special dates, the personal Dream Map | `vault/Life/`, the account's `context/` files except the CFO's | M5 |
 | 09 | **Peptide Operator** (peptide lead) | peptide | The offer's morning pulse, the bottleneck, client fulfilment, the blind-spot check, the peptide Dream Map | `vault/Offer/`, `vault/Clients/`, `daily/<date>/pulse.md`, the account's `context/` files except the other two bots' | M6 |
 | 10 | **Media Buyer** | peptide | The daily ad pulse, scale/hold/cut calls, fatigue, the Monday creative brief | `vault/Ads/`, `context/ad-accounts.md`, `context/ad-rules.md`; ad changes only on an approved list | M6 |
 | 11 | **Scale Advisor** | peptide | Cited answers from the expert libraries, "the Jeremy way" drafts, teardowns, the Sunday scale memo, client editions | `libraries/`, `vault/Advisor/`, `context/libraries.md` | M6 |
@@ -78,12 +75,12 @@ Why five business bots and not more:
 - **Jeremy Haynes material is a skill** (`jeremy-haynes-precall-playbook`), not an agent, per the Oct 16 meeting. On the peptide account it becomes the Scale Advisor's library, because Chris asked for his own "Jeremy AI" for that offer and its clients.
 - **The Sales Coach is separate from the Sales Manager.** One checks that reps did the work (EODs, dispositions, no-shows); the other judges how well they sell, from recordings, with a rubric Chris owns. Its scorecards are the one record of each call, so the Growth Operator builds from them instead of scoring calls again.
 
-Why three accounts:
-- **Every bot on one Grok account shares one computer, its files and its logins.** That's Grok Bot's design. Chris's personal notes and money, and the offer's ad and payment logins, would otherwise sit next to COG's data.
-- **The personal team is more than one bot** because the jobs have different data and different rules: plans need the browser and his calendar; money is read-only exports.
+Why the peptide team gets its own account, and the personal side isn't here at all:
+- **Every bot on one Grok account shares one computer, its files and its logins.** That's Grok Bot's design. The offer's ad and payment logins would otherwise sit next to COG's data.
+- **His personal life and money run in ChatGPT** (a Project called My Life, from a private setup file). ChatGPT already knows him from years of use, and nothing personal ever sits on a computer the business bots share.
 - **The peptide team is three bots** because Chris asked for each one: an agent that learns everything about the offer, a media buyer, and his own "Jeremy AI". The lead keeps the numbers; the other two never change anything without his yes.
 
-Full charters: [agents/](agents/).
+Full charters: [agents/](agents/). Numbers 05, 07 and 08 are unused.
 
 ## 5. How the bots work together on Grok Bot
 
@@ -102,7 +99,7 @@ Full charters: [agents/](agents/).
   vault/       the Obsidian vault: Daily/, Reps/, Prospects/, Assets/, Weekly/, Decisions.md
 ```
 
-The personal account has its own computer and works only in `/workspace/chris-personal/` (`context/`, `daily/`, `ledger/`, `reports/`, `requests/`, `log/`, `vault/Life/`). The peptide team works only in `/workspace/peptide/` (`context/`, `daily/`, `requests/`, `log/`, `libraries/`, `vault/Offer/`, `vault/Clients/`, `vault/Ads/`, `vault/Advisor/`), on its own account or on the business one. Each account's lead bot keeps that account's switches, registry and Dream Map.
+The peptide team works only in `/workspace/peptide/` (`context/`, `daily/`, `requests/`, `log/`, `libraries/`, `vault/Offer/`, `vault/Clients/`, `vault/Ads/`, `vault/Advisor/`), on its own account or on the business one. Each account's lead bot keeps that account's switches, registry and Dream Map.
 
 **Handoffs go through files and one message.** A bot never wakes another bot just to ask a question; it reads that bot's daily note or data. To hand work over, it writes `requests/<bot>/<date>-<slug>.md` and sends one handoff message. The owner replies with a result or one precise blocker, under the same request file.
 
@@ -138,8 +135,6 @@ The personal account has its own computer and works only in `/workspace/chris-pe
 | The COG call standard | `context/call-standard.md` | Sales Coach, in Chris's words only |
 | The business Dream Map | `context/dream-map.md` | Chief |
 | What ChatGPT knew about Chris, per account | `context/about-me.md` on each account | That account's lead bot |
-| Plans, favourites, special dates | `/workspace/chris-personal/vault/Life/`, `context/special-dates.md` | Life Concierge |
-| Personal ledger and reports | `/workspace/chris-personal/ledger/`, `reports/` | CFO |
 | The offer's facts, targets and claims we never make | `/workspace/peptide/context/offer.md` | Peptide Operator, in Chris's words only |
 | Ad pulse, approved ad changes, creative briefs | `/workspace/peptide/vault/Ads/` | Media Buyer |
 | Expert libraries | `libraries/` on the business and peptide accounts | Sales Coach (business), Scale Advisor (peptide) |
@@ -163,10 +158,10 @@ Grok Bot's **Auto-review** rules back this up: Chris adds the **Ask first** rule
 
 ## 9. Usage and cost
 
-- **Plans.** Each Grok account needs a plan that includes Grok Bot (xAI's plans page lists which ones). The personal account is a second plan. The peptide team is a third, or shares the business plan's usage if it runs there. Usage resets weekly.
-- **What the new bots add.** Business: one call-QC run each weekday, the Friday coaching report, and one Dream check-in run each Monday (it stops in a second except on the first Monday). Personal: two weekly runs plus the CFO's. Peptide: two runs a day (the ad pulse and the offer pulse) and three weekly. On a shared business plan, the peptide team's runs come out of the same week.
+- **Plans.** Each Grok account needs a plan that includes Grok Bot (xAI's plans page lists which ones). The peptide team needs a second plan, or shares the business plan's usage if it runs there. Usage resets weekly.
+- **What the new bots add.** Business: one call-QC run each weekday, the Friday coaching report, and one Dream check-in run each Monday (it stops in a second except on the first Monday). Peptide: two runs a day (the ad pulse and the offer pulse) and three weekly. On a shared business plan, the peptide team's runs come out of the same week.
 - **Budget the week.** Chief reads the weekly usage meter in its Friday wrap. The business team keeps a quarter of the week for replies and incidents. At 80% of the rest, Chief proposes which optional routine to pause first (Growth, then the Pre-Call midday sweep, then the daily call QC, which can drop to twice a week). Nothing is paused or upgraded without Chris's yes.
-- **Grok Bot may pause routines** after a long absence if nobody answers it. Chief's morning brief lists any business routine that was due and didn't log a run, so a silent pause is caught the next morning. On the peptide account the morning pulse does the same, and on the personal account the Thursday weekend plan does, once a week.
+- **Grok Bot may pause routines** after a long absence if nobody answers it. Chief's morning brief lists any business routine that was due and didn't log a run, so a silent pause is caught the next morning. On the peptide account the morning pulse does the same.
 - No bot buys anything, upgrades a plan or starts a subscription.
 
 ## 10. Milestones and dependencies
@@ -180,7 +175,7 @@ No dates. A milestone is done when its proof passes.
 | **M2 Team created** | M1 | COG Sales Manager, Pre-Call Concierge and Growth Operator exist, each replied "ready", every routine is created **paused** and listed in the registry |
 | **M3 Preview week** | M2 | Five nights in a row: the EOD checks and the morning report run in preview (to Chris only) and Chris marks them right. Every mistake is fixed in the config or the skill |
 | **M4 Live accountability** | M3; Chris's written standing approval | The bump posts unattended in the KPI channel. Only one COG bot is active (the Hermes one is paused). Everything else still asks first |
-| **M5 Personal team** | A second Grok account; Chris's read-only exports | Chris uses one Thursday weekend plan, and "how much did I spend this month?" is answered from his own data |
+| **M5 Personal team** | Moved out of this package | His personal side runs in ChatGPT (§13). Nothing here to prove |
 | **M6 Peptide team** | Chris's choice of account (§13, open decision 9); the offer's intake and targets; read access to its CRM, payments and ad accounts | The morning pulse arrives with every number sourced or UNKNOWN, Chris acts on one bottleneck, and the Scale Advisor answers one question from the Jeremy Haynes library with sources |
 | **M7 Real-time no-shows** | M4; a GoHighLevel webhook to a routine trigger | A test no-show alerts Chris within the SOP window |
 | **M8 Pre-Call and Growth live** | M3; the Jeremy Haynes knowledge base link | One pre-call sequence and one asset drafted from real data and approved |
@@ -194,7 +189,6 @@ No dates. A milestone is done when its proof passes.
 - **Accuracy:** in the preview week, no flag is wrong without being marked "unverified".
 - **Time:** Chris's sales-admin time drops to reviewing exceptions. He notes his before and after in the vault.
 - **Calls:** Chris listens only to the calls the Sales Coach flags.
-- **Life:** Chris uses a weekend plan at least twice a month and misses no special date he told it about.
 - **Peptide:** every ad dollar is traced to booked calls and cash, and no ad is rejected for a claim.
 - **Independence:** Chris completes M10, and the Dream Map has something new going live every month.
 
@@ -209,10 +203,9 @@ No dates. A milestone is done when its proof passes.
 | **KPI channel in COG's Slack, app in WeScale** | The intake asks which workspace. `docs/SLACK-SETUP.md` covers both; COG's Slack needs its admin to approve an app |
 | **A routine paused by Grok Bot without anyone noticing** | Every run logs a line; the morning brief lists routines that were due and didn't run |
 | **An approval prompt at 11:30 PM that nobody sees** | The bump runs under a standing approval and a matching Auto-review rule. Without them it drafts and stops; it never waits |
-| **Every bot on an account shares files and logins** | That's Grok Bot's design, not a choice made here. Business and personal are separate accounts. GHL's token is read-only, so no bot can change GHL even by mistake. Separation inside one account is by charter rule |
+| **Every bot on an account shares files and logins** | That's Grok Bot's design, not a choice made here. The peptide team has its own account, and his personal side isn't on Grok Bot. GHL's token is read-only, so no bot can change GHL even by mistake. Separation inside one account is by charter rule |
 | **Usage runs out mid-week** | Lean runs, a protected reserve, Chief's weekly usage line and an agreed pause order |
-| **Private financial data seen by business bots** | The CFO is on its own Grok account and computer. Read-only. No credentials or full account numbers stored |
-| **Personal notes or plans leaking** | They live only on the personal account, first names only, deleted on request. Any private bot is described only in Chris's private notes. None of it is in this repo |
+| **Private financial data or personal notes seen by business bots** | None of it is on Grok Bot. His personal life and money run in ChatGPT, from a private file that's never in this repo. Chief points him there and answers nothing personal from business data |
 | **The peptide team on the business account sees COG's logins, and the reverse** | Recommended: its own account. If it shares, Chris is told once before setup, and every routine's isolation guard keeps each team in its own folder |
 | **A regulated product's ad or page makes a claim** | "Claims we never make" lives in `context/offer.md`. The Media Buyer checks every concept against it and the platform's policy; the Peptide Operator checks every draft before Chris sees it. Nothing publishes without him |
 | **An ad change goes further than approved** | The Media Buyer changes only the exact numbered list Chris said yes to, and logs before and after |
@@ -227,8 +220,9 @@ No dates. A milestone is done when its proof passes.
 - **Chief doubles as head of operations.**
 - **Growth Operator and Pre-Call Concierge are in from the start, as drafts.** Their routines switch on after COG's preview week.
 - **Personal finance and the peptide business are separate** from COG, per the Oct 16 meeting. On Grok Bot, real separation means a separate account.
+- **His personal side runs in ChatGPT, not on a second Grok account** (Justin, 2026-10-27). ChatGPT already knows him from years of use. Justin sends him a private setup file for a ChatGPT Project called My Life. Nothing personal is built on Grok Bot or kept in this repo.
 - **The Obsidian vault lives on the bot computer** and is backed up to Google Drive every night for Chris to open in Obsidian.
-- **Everything Chris asked for on the Oct 6 and Oct 16 calls gets an owner** (Justin, 2026-10-27): the Sales Coach, the personal team, the peptide team, the Dream Map and the project specs. His own words live in private attachments (`DREAM-MAP.md`, `PERSONAL-CONTEXT.md`, `GROWTH-CONTEXT.md`), never in this repo.
+- **Everything Chris asked for on the Oct 6 and Oct 16 calls gets an owner** (Justin, 2026-10-27): the Sales Coach, the peptide team, the Dream Map and the project specs, with his personal side in ChatGPT. His own words live in private attachments (`DREAM-MAP.md`, `GROWTH-CONTEXT.md`) and the ChatGPT setup file, never in this repo.
 - **The Peptide Operator is built for Chris, not by him.** His first own build is the WeScale Operator (M10), from the Dream Map.
 
 **Open (asked in the intake, Step 3 of START-HERE)**
@@ -238,7 +232,7 @@ No dates. A milestone is done when its proof passes.
 4. Where EOD forms land (Google Form → Sheet, Slack workflow or GHL form) and the exact fields.
 5. Daily and weekly targets.
 6. The no-show SOP window (the spec assumes 2 calls + 1 text + setter notified + GHL updated within 10 minutes).
-7. Whether Chris wants the second Grok account (the personal team) now or later.
+7. *Closed:* his personal side runs in ChatGPT, not on a second Grok account (Made, above).
 8. Where call recordings live, for the Sales Coach and the Growth Operator.
-9. **The peptide team's account:** a third Grok account (recommended: its ad, CRM and payment logins stay apart from COG's) or the business account in its own folder for now. Chris and Justin decide; nothing else changes either way.
+9. **The peptide team's account:** a second Grok account (recommended: its ad, CRM and payment logins stay apart from COG's) or the business account in its own folder for now. Chris and Justin decide; nothing else changes either way.
 10. The COG call standard: the Sales Coach drafts it from COG's scripts; Chris approves it in his own words before any call is scored.

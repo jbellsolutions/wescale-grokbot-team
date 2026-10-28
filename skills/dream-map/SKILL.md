@@ -1,6 +1,6 @@
 ---
 name: dream-map
-description: Use to keep Chris's Dream Map - every business goal, AI idea and life want he has mentioned, in his words, with who owns it and its status - and for the monthly Dream check-in that picks the next thing to build and builds it with him. Also use when Chris says "add this to the list", "what's next" or "what have we built".
+description: Use to keep Chris's Dream Map - every business goal and AI idea he has mentioned, in his words, with who owns it and its status - and for the monthly Dream check-in that picks the next thing to build and builds it with him. Also use when Chris says "add this to the list", "what's next" or "what have we built".
 ---
 
 # Dream Map
@@ -12,10 +12,9 @@ Chris keeps having ideas and asks for them to be added to the list. He also aske
 | Account | Dream Map | Kept by | Seeded from (if Chris attached it at setup) |
 |---|---|---|---|
 | Business | `/workspace/cog-team/context/dream-map.md` | Chief | `DREAM-MAP.md` |
-| Personal | `/workspace/chris-personal/context/dream-map.md` | Life Concierge | the dream rows in `PERSONAL-CONTEXT.md` |
 | Peptide | `/workspace/peptide/context/dream-map.md` | Peptide Operator | the dream rows in `GROWTH-CONTEXT.md` |
 
-Use only your account's row. A dream that belongs on another account gets one line to Chris: "That one lives on your <personal / peptide> account. Tell <lead bot> there."
+Use only your account's row. A dream that belongs on the other account gets one line to Chris: "That one lives on your <business / peptide> account. Tell <lead bot> there." A personal dream (his life, his money) isn't kept on Grok Bot: "That one's for your ChatGPT project, My Life."
 
 ## When to use
 
@@ -44,11 +43,11 @@ Write it in Chris's words. Set the area, and the owner if a bot already covers i
 
 1. **Wins:** what moved to live this month, one line each.
 2. **Stuck:** anything built but not live, and the one thing it's waiting on from Chris.
-3. **Next:** one dream to build this month, the most value for the least setup, with a one-line reason. Ask whether anything on his personal or peptide list should go first; that account's lead bot builds it.
+3. **Next:** one dream to build this month, the most value for the least setup, with a one-line reason. Ask whether anything on his peptide list should go first; the Peptide Operator builds it.
 4. On his yes, build it with him using the `agent-builder-loop` skill. Ask whether he wants to do each step or watch, and explain each step in one plain sentence first.
 5. Update the map.
 
-The personal and peptide leads answer "what's next?" the same way when Chris asks, and build with him by following `docs/BUILD-YOUR-NEXT-AGENT.md` in their own copy of the repo.
+The Peptide Operator answers "what's next?" the same way when Chris asks, and builds with him by following `docs/BUILD-YOUR-NEXT-AGENT.md` in its own copy of the repo.
 
 ## Validate
 

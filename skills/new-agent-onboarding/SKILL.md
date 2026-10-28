@@ -22,7 +22,7 @@ Save it as a **new** file `/workspace/cog-team/repo/agents/NN-name.md` (the next
 ```
 # Agent charter: <Name>
 
-**Bot name:** <Name> · **Account:** business | personal | peptide · **Milestone:** <M#> · **Reports to:** Chief | Chris
+**Bot name:** <Name> · **Account:** business | peptide · **Milestone:** <M#> · **Reports to:** Chief | Chris
 
 ## Role
 ## Mission
@@ -58,6 +58,6 @@ Auto-review rules cover every bot on the same Grok account. A bot on a new Grok 
 
 ## Never
 
-- Give a new bot access to the personal account, money, or another bot's records.
+- Give a new bot access to Chris's personal life, money, or another bot's records.
 - Turn on a routine that hasn't passed its test.
 - Put a secret, token or key in a charter, a skill or the registry.

@@ -29,7 +29,7 @@ Then list the 3–5 tasks you actually repeat. Each one needs:
 
 *COG:* your seven jobs (KPI Monitor, Calendar Monitor, GHL Auditor…) all use the same data and report to you, so they're **seven skills of one bot**. Growth assets need different tools and approvals, so that's a separate bot. Jeremy Haynes material is knowledge, not a job, so it's a skill.
 
-Then the **account**. Every bot on one Grok account shares one computer: its files, its browser sessions and its logins. If the new bot's data or logins must stay apart from COG's, it needs its own Grok account (and its own plan). *COG:* your life and money are on a separate personal account, and the peptide offer on its own, for exactly this reason.
+Then the **account**. Every bot on one Grok account shares one computer: its files, its browser sessions and its logins. If the new bot's data or logins must stay apart from COG's, it needs its own Grok account (and its own plan). *COG:* the peptide offer is on its own account for exactly this reason, and your life and money aren't on Grok Bot at all (they're in ChatGPT).
 
 ### 3. Charter: the agent's job description
 
